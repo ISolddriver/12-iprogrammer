@@ -12,11 +12,28 @@
 <script>
   import searchInfo from './searchInput.vue'
   import contentList from './content.vue'
+  import axios from 'axios'
   export default {
     name: 'discovery',
     components: {
       searchInfo,
       contentList
+    },
+    methods: {
+      getDiscoverData () {
+        axios.get('/api/discovery.json')
+         .then(this.handleDataSucc.bind(this))
+         .catch(this.handleError.bind(this))
+      },
+      handleDataSucc (res) {
+        console.log(res)
+      },
+      handleError () {
+        alert('error')
+      }
+    },
+    created () {
+      this.getDiscoverData()
     }
   }
 </script>
