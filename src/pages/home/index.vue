@@ -2,8 +2,7 @@
   <div class="main">
     <home-header></home-header>
     <home-search></home-search>
-    <home-nav></home-nav>
-    <home-con></home-con>
+    <home-attention class="scroller"></home-attention>
     <footer-con></footer-con>
   </div>
 </template>
@@ -11,16 +10,14 @@
 <script>
   import homeHeader from './homeHeader'
   import homeSearch from './homeSearch'
-  import homeCon from './homeCon'
-  import homeNav from './homeNav'
-  import footerCon from './footer'
+  import homeAttention from './homeAttention'
+  import footerCon from '../../components/footer/footer'
   export default {
     name: 'Home',
     components: {
       homeHeader,
       homeSearch,
-      homeNav,
-      homeCon,
+      homeAttention,
       footerCon
     }
   }
@@ -36,4 +33,7 @@
     right: 0
     bottom: 0
     left: 0
+    .scroller
+      flex: 1
+      overflow: hidden
 </style>

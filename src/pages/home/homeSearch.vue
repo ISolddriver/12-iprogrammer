@@ -1,13 +1,24 @@
 <template>
   <div class="search border-bottom">
-    <input class="search-input" type="text" placeholder="iProgrammer新时代">
+    <input class="search-input" type="text" placeholder="iProgrammer新时代"
+      ref="search"
+      @focus="searchInputFocus"
+      @blur="searchInputBlur">
     <div class="search-btn">搜索</div>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'homeSearch'
+    name: 'homeSearch',
+    methods: {
+      searchInputFocus () {
+        this.$refs.search.style.border = '1px solid #0aa8f1'
+      },
+      searchInputBlur () {
+        this.$refs.search.style.border = '1px solid #fff'
+      }
+    }
   }
 </script>
 
@@ -25,6 +36,7 @@
     .search-input
       width: 61%
       padding-left: .3rem
+      border: 1px solid #fff
       background: #ddd
     .search-btn
       padding: 0 .14rem

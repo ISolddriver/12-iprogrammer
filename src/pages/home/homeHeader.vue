@@ -6,10 +6,9 @@
     <div class="head-con classify"
          v-bind:class="[classifyActive ? 'active' : '']"
          data-id="classify">分类</div>
-    <router-link to="/recommend" tap="div">
-      <div class="head-con recommand"
+    <router-link to="/recommend" tap="div" class="head-con recommand"
          v-bind:class="[recommandActive ? 'active' : '']"
-         data-id="recommand">推荐</div>
+         data-id="recommand">推荐
     </router-link> 
     
   </div>
