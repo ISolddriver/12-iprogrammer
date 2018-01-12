@@ -1,8 +1,8 @@
 <template>
   <div class="main">
-    <home-header></home-header>
+    <home-header @currentTab="handlePage"></home-header>
     <home-search></home-search>
-    <home-attention class="scroller"></home-attention>
+    <prince :is="currentTab" class="scroller" keep-alive></prince>
     <footer-con></footer-con>
   </div>
 </template>
@@ -11,14 +11,28 @@
   import homeHeader from './homeHeader'
   import homeSearch from './homeSearch'
   import homeAttention from './homeAttention'
+  import homeClassify from './homeClassify'
+  import homeRec from './homeRec'
   import footerCon from '../../components/footer/footer'
   export default {
     name: 'Home',
+    data () {
+      return {
+        currentTab: 'homeAttention'
+      }
+    },
     components: {
       homeHeader,
       homeSearch,
       homeAttention,
+      homeClassify,
+      homeRec,
       footerCon
+    },
+    methods: {
+      handlePage (page) {
+        this.currentTab = page
+      }
     }
   }
 </script>

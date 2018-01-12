@@ -1,10 +1,10 @@
 <template>
-
+  <div>Rec</div>
 </template>
 
 <script>
   export default {
-    name: 'exchange'
+    name: 'homeRec'
   }
 </script>
 

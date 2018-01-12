@@ -1,10 +1,10 @@
 <template>
-
+  <div>classify</div>
 </template>
 
 <script>
   export default {
-    name: 'exchange'
+    name: 'homeClassify'
   }
 </script>
 

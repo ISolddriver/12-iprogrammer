@@ -1,9 +1,10 @@
 <template>
   <div class="search border-bottom">
-    <input class="search-input" type="text" placeholder="iProgrammer新时代"
-      ref="search"
-      @focus="searchInputFocus"
-      @blur="searchInputBlur">
+    <input id="search-input" class="search-input"
+           type="text" placeholder="iProgrammer新时代"
+           ref="search"
+           @focus="searchInputFocus"
+           @blur="searchInputBlur">
     <div class="search-btn">搜索</div>
   </div>
 </template>

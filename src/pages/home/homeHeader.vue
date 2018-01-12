@@ -1,44 +1,62 @@
 <template>
-  <div class="header" @click="handleNavClick($event)">
+  <div class="header">
     <div class="head-con focus"
-         v-bind:class="[focusActive ? 'active' : '']"
-         data-id="focus">关注</div>
+         @click="handleNavClick('homeAttention')"
+         :class="[cssAttention ? 'active' : '']" 
+         >关注
+    </div>
     <div class="head-con classify"
-         v-bind:class="[classifyActive ? 'active' : '']"
-         data-id="classify">分类</div>
-    <router-link to="/recommend" tap="div" class="head-con recommand"
-         v-bind:class="[recommandActive ? 'active' : '']"
-         data-id="recommand">推荐
-    </router-link> 
-    
+         @click="handleNavClick('homeClassify')"
+         :class="[cssClassify ? 'active' : '']" 
+         >分类
+    </div>
+    <div class="head-con recommand" 
+         @click="handleNavClick('homeRec')"
+         :class="[cssRec ? 'active' : '']" 
+         >推荐
+    </div>
+
   </div>
 </template>
 
 <script>
+  import homeAttention from './homeAttention'
+  import homeClassify from './homeClassify'
+  import homeRec from './homeRec'
+
   export default {
     name: 'homeHeader',
     data () {
       return {
-        focusActive: true,
-        classifyActive: false,
-        recommandActive: false
+        currentTab: 'homeAttention',
+        cssAttention: true,
+        cssClassify: false,
+        cssRec: false
       }
     },
+
+    components: {
+      homeAttention,
+      homeClassify,
+      homeRec
+    },
+
     methods: {
-      handleNavClick (e) {
-        const tar = e.target
-        if (tar.getAttribute('data-id') === 'focus') {
-          this.focusActive = true
-          this.classifyActive = false
-          this.recommandActive = false
-        } else if (tar.getAttribute('data-id') === 'classify') {
-          this.focusActive = false
-          this.classifyActive = true
-          this.recommandActive = false
-        } else {
-          this.focusActive = false
-          this.classifyActive = false
-          this.recommandActive = true
+      handleNavClick (tab) {
+        this.currentTab = tab
+        this.$emit('currentTab', this.currentTab)
+        if (this.currentTab === 'homeAttention') {
+          this.cssAttention = true
+          this.cssClassify = false
+          this.cssRec = false
+        } else if (this.currentTab === 'homeClassify') {
+          this.cssAttention = false
+          this.cssClassify = true
+          this.cssRec = false
+        } else if (this.currentTab === 'homeRec') {
+          this.cssAttention = false
+          this.cssClassify = false
+          this.cssRec = true
         }
       }
     }
