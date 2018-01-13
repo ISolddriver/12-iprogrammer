@@ -7,17 +7,20 @@
 		</div>
 		<search-info></search-info>
 		<content-list></content-list>
+    <footer-con></footer-con>
 	</div>
 </template>
 <script>
   import searchInfo from './searchInput.vue'
   import contentList from './content.vue'
+  import footerCon from '../../components/footer/footer'
   import axios from 'axios'
   export default {
     name: 'discovery',
     components: {
       searchInfo,
-      contentList
+      contentList,
+      footerCon
     },
     methods: {
       getDiscoverData () {

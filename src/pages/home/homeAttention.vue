@@ -10,7 +10,7 @@
             <img class="conImg" :src="'../../static/img/' + item.headImg" alt="">
           </div>
           <div class="author">{{item.author}}<i class="shareText">的分享</i></div>
-          <div class="more"><i class="iconfont">&#xe66c;</i></div>
+          <div class="more"><i class="iconfont more-icon">&#xe63d;</i></div>
         </div>
         <div class="con-bottom">
           <div class="con-bottom-img">
@@ -138,6 +138,9 @@
         position: absolute
         right: .3rem
         top: .35rem
+        .more-icon
+          color: $fontColor
+          font-size: .5rem!important
     .con-bottom
       .con-bottom-img
         width: 100%

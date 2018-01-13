@@ -15,11 +15,16 @@
 			<p class="addressCon">沙河老牛湾</p>
 			<div class="setting">设置</div>
 		</div>
+		<footer-con></footer-con>
 	</div>
 </template>
 <script>
+  import footerCon from '../../components/footer/footer'
   export default {
-    name: 'mine'
+    name: 'mine',
+    components: {
+      footerCon
+    }
   }
 </script>
 <style scoped lang='stylus'>

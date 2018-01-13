@@ -1,9 +1,17 @@
 <template>
   <div class="footer border-top">
-    <div class="subfield"><p class="iconfont sub-icon">&#xe65d;</p><p class="sub-text">首页</p></div>
-    <div class="subfield"><p class="iconfont sub-icon">&#xe65a;</p><p class="sub-text">发现</p></div>
-    <div class="subfield"><p class="iconfont sub-icon">&#xe6e7;</p><p class="sub-text">交流</p></div>
-    <div class="subfield"><p class="iconfont sub-icon">&#xe62f;</p><p class="sub-text">我</p></div>
+    <router-link tag="div" to="/" class="subfield">
+      <p class="iconfont sub-icon">&#xe65d;</p><p class="sub-text">首页</p>
+    </router-link>
+    <router-link tag="div" to="/discovery" class="subfield">
+      <p class="iconfont sub-icon">&#xe65a;</p><p class="sub-text">发现</p>
+    </router-link>
+    <router-link tag="div" to="/exchange" class="subfield">
+      <p class="iconfont sub-icon">&#xe6e7;</p><p class="sub-text">消息</p>
+    </router-link>
+    <router-link tag="div" to="/mine" class="subfield">
+      <p class="iconfont sub-icon">&#xe62f;</p><p class="sub-text">我</p>
+    </router-link>
   </div>
 </template>
 

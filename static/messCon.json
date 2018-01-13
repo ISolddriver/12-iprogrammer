@@ -1,0 +1,22 @@
+{
+  "ret": true,
+  "data": {
+    "slider": [{
+      "id": "0001",
+      "link": "",
+      "imgUrl": "mess01.jpg"
+    }, {
+      "id": "0002",
+      "link": "",
+      "imgUrl": "mess02.jpg"
+    }, {
+      "id": "0003",
+      "link": "",
+      "imgUrl": "mess03.jpg"
+    }, {
+      "id": "0004",
+      "link": "",
+      "imgUrl": "mess04.jpg"
+    }]
+  }
+}

@@ -5,16 +5,19 @@ import App from './App'
 import store from './store/'
 import router from './router'
 import Fastclick from 'fastclick'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
 import VueLazyload from 'vue-lazyload'
 import './assets/style/base/reset.css'
 import './assets/style/base/border.css'
 import './assets/style/base/iconfont/iconfont.css'
+import 'swiper/dist/css/swiper.css'
 
 import directives from './directives/touch'
 directives(Vue)
 
 Vue.config.productionTip = false
 Fastclick.attach(document.body)
+Vue.use(VueAwesomeSwiper)
 Vue.use(VueLazyload, {
   preLoad: 1.3,
   error: 'http://img1.qunarzz.com/sight/p0/1511/d2/d2aec2dfc5aa771290.water.jpg_140x140_abb362a7.jpg',
