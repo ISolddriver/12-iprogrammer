@@ -44,12 +44,20 @@
 				<span class="iconfont arrowRight">&#xe61b;</span>
 			</div>
 		</div>
+<<<<<<< HEAD
 
+=======
+		<footer-con></footer-con>
+>>>>>>> 2018-1-12
 	</div>
 </template>
 <script>
+  import footerCon from '../../components/footer/footer'
   export default {
-    name: 'mine'
+    name: 'mine',
+    components: {
+      footerCon
+    }
   }
 </script>
 <style scoped lang='stylus'>
