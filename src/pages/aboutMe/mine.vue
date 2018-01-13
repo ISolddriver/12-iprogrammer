@@ -1,20 +1,50 @@
 <template>
 	<div>
-		<div class="head">
-			<i class="back"> < </i>
-			<div class="myName">我的信息</div>
-		</div>
 		<div class="info">
-			<img src="../discovery/1.jpg" class="photo">
-			<span class="nickname">昵称：于大炮</span>
-			<span class="ipNum">ip号: 1897262626</span>
-			<span class="introduce">个人简介</span>
-			<div class="introduceCon">一人我饮酒醉</div>
-			<div class="more">更多</div>
-			<div class="address">我的地址</div>
-			<p class="addressCon">沙河老牛湾</p>
-			<div class="setting">设置</div>
+			<img src="../error.jpg" class="photo">
+			<p class="name">
+				<router-link tap="span" class="login" to="/login">登陆</router-link> / 
+				<router-link tap="span" class="register" to="register">注册</router-link>
+			</p>
+			<div class="contact">
+				<img src="../../images/1.jpg" class="pic">
+				<span class="ipNum">IP号：23453322</span>
+			</div>
+			<p class="introduce">个人简介: 一个大胖子</p>
+			<div class="data">
+				<div class="dynamic dataInfo">
+					<p>160</p>
+					<span>动态</span>
+				</div>
+				<div class="follow dataInfo">
+					<p>160</p>
+					<span>关注</span>
+				</div>
+				<div class="fans dataInfo">
+					<p>160</p>
+					<span>粉丝</span>
+				</div>				
+			</div>
 		</div>
+
+		<div class="list-con">
+			<div class="addr list">
+				<i class="iconfont" style="color: #3b2edf">&#xe68b;</i>
+				<span>地址</span>
+				<span class="iconfont arrowRight">&#xe61b;</span>
+			</div>
+			<div class="more list">
+				<i class="iconfont" style="color: #ff852f">&#xe617;</i>
+				<span>更多</span>
+				<span class="iconfont arrowRight">&#xe61b;</span>
+			</div>
+			<div class="setting list">
+				<i class="iconfont" style="color: #ffc100">&#xe6a2;</i>
+				<span>设置</span>
+				<span class="iconfont arrowRight">&#xe61b;</span>
+			</div>
+		</div>
+
 	</div>
 </template>
 <script>
@@ -23,43 +53,53 @@
   }
 </script>
 <style scoped lang='stylus'>
-	.head
-		display: flex
-		height: .88rem
-		line-height: .88rem
-		background: #d00
-		.back
-			width: .5rem
-			position: absolute
-			left: .1rem
-			font-size: 24px
-			font-weight: 900
-		.myName
-			width: 100%
-			font-size: 20px
-			text-align: center	
 	.info
-		display: flex
-		flex-direction: column
+		width: 100%
+		height: 5.52rem
+		text-align: center
+		color: #fff
+		background: url(../../images/minebg.jpg) no-repeat center center
 		.photo
-			width: 1.5rem
-			height: 1.5rem
-		.nickname	
-			font-size: 18px
-		.ipNum 
-			font-size: 18px
+			width: 1.46rem
+			height: 1.46rem
+			border-radius: .73rem
+			margin: .92rem 0 .2rem 0
+		.name
+			margin-bottom: .2rem
+			font-size: .36rem
+			.register, .login
+				color: #fff
+		.contact
+			font-size: .24rem
+			margin-bottom: .2rem
+			.pic
+				width: .32rem
+				height: .32rem
 		.introduce
-			font-size: 18px
-		.introduceCon
-			width: 80%
-			height: 2rem
-			background: #fff
-		.more
-			font-size: 18px
-		.address
-			font-size: 18px
-		.addressCon	
-			font-size: 16px	
-		.setting
-			font-size: 18px
+			font-size: .36rem
+		.data
+			height: .8rem
+			font-size: .30rem
+			margin-top: .4rem
+			text-align: center
+			.dataInfo
+				float: left
+			.dynamic, .fans
+				width: 2.6rem
+			.follow 
+				width: 2.2rem
+				border-left: 1px solid #fff
+				border-right: 1px solid #fff
+	.list-con
+		font-size: .32rem
+		.list
+			position: relative
+			height: 1.33rem
+			line-height: 1.33rem
+			padding-left: .1rem
+			color: #777e84
+			border-bottom: 1px solid #ccc
+			.arrowRight
+				position: absolute
+				right: .2rem
 </style>

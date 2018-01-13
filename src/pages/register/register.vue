@@ -1,9 +1,7 @@
 <template>
 	<div class="registerArea">
 		<div class="head"><i class="back iconfont">&#xe63f;</i>注册账号</div>
-		<div class="logo">
-			<img src="" alt="">
-		</div>
+		<img src="../../images/logo.png" alt="">
 		<div class="inputCon" v-show="hide">
 			<phone-num @phoneNumConfirm="handlePhoneNum"></phone-num>			
 			<message @messageCode="handleMessageCode"></message>			
@@ -86,7 +84,10 @@
 			left: 10px
 			font-size: .32rem
 			line-height: .88rem
-	
+	img
+		width: 70%
+		height: 4rem
+		margin: 0 0 0 1.1rem  
 	.btn 
 		height: .88rem
 		width: 5.6rem

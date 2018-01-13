@@ -1,23 +1,30 @@
 <template>
-	<div>
+	<div class="main">
 		<div class="head">
-			<img src="./1.jpg" alt="">
 			<div class="title">发现</div>
 			<div class="recommendBtn">推荐频道</div>
 		</div>
 		<search-info></search-info>
-		<content-list></content-list>
+		<content-list :list="list"></content-list>
+		<footer-nav></footer-nav>
 	</div>
 </template>
 <script>
+  import footerNav from '../../components/footer/footer'
   import searchInfo from './searchInput.vue'
   import contentList from './content.vue'
   import axios from 'axios'
   export default {
     name: 'discovery',
+    data () {
+      return {
+        list: []
+      }
+    },
     components: {
       searchInfo,
-      contentList
+      contentList,
+      footerNav
     },
     methods: {
       getDiscoverData () {
@@ -26,7 +33,7 @@
          .catch(this.handleError.bind(this))
       },
       handleDataSucc (res) {
-        console.log(res)
+        this.list = res.data.data.comments
       },
       handleError () {
         alert('error')
@@ -38,22 +45,25 @@
   }
 </script>
 <style scoped lang="stylus">
+.main
+	position: absolute
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	display: flex
+	flex-direction: column
 	.head
-		display: flex
 		width: 100%
 		height: .88rem
 		line-height: .88rem
-		background: #d00
-		img
-			height: .5rem
-			width: .5rem
-			margin-top: .15rem
-			margin-left: .2rem
+		background: #c8c3be
+		color: #fff
 		.title 
-			flex: 1
 			text-align: center
 			font-size: 18px
 		.recommendBtn
-			height: .88rem
-			width: 1.3rem
+			position: absolute 
+			right: .4rem
+			top: 0
 </style>

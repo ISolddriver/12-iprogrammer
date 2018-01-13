@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="main">
 		<div class="inputCon">
 			<input type="text" placeholder="发现不一样，发现你不知道">
 		</div>
@@ -11,6 +11,9 @@
   }
 </script>
 <style scoped lang='stylus'>
+.main
+	height: .6rem
+	top: .88rem
 	.inputCon
 		width: 70%
 		height: .6rem

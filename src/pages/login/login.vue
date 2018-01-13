@@ -1,6 +1,8 @@
 <template>
 	<div class="login">
-		<div class="logo">login</div>
+		<div class="logo">
+			<img src="../../images/logo.png" alt="">
+		</div>
 		<div class="loginArea">
 			<div class="area">				
 				<i class="iconfont icon">&#xe724;</i>				
@@ -39,25 +41,44 @@
 	
 </template>
 <script>
+  import axios from 'axios'
   export default {
     name: 'login',
     data () {
       return {
         username: '',
-        password: ''
+        password: '',
+        nameConfirm: false,
+        pwdConfirm: false,
+        passwordInfo: ''
       }
     },
     methods: {
       handleUserName (e) {
         this.username = e.target.value
-        console.log(this.username)
+        axios.get('/api/login.json')
+         .then(this.handleSucc.bind(this))
+         .catch(this.handleErr.bind(this))
+      },
+      handleSucc (res) {
+        this.nameConfirm = res.data.ret
+        this.passwordInfo = res.data.data.password
+        this.nameConfirm = true
+        console.log(this.passwordInfo)
+      },
+      handleErr () {
+        console.log('error in login')
       },
       handlePassword (e) {
         this.password = e.target.value
-        console.log(this.password)
+        if (this.password === this.passwordInfo) {
+          this.pwdConfirm = true
+        }
       },
       handleLogin () {
-        this.$router.push({path: '/'})
+        if (this.pwdConfirm && this.nameConfirm) {
+          this.$router.push({path: '/'})
+        }
       }
     }
   }
@@ -70,6 +91,9 @@
 	bottom: 0
 	left: 0
 	background: url(../../images/bg2.png)
+	img
+		width: 100%;
+		height: 5rem
 	.loginArea
 		display: flex
 		flex-direction: column
