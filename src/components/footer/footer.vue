@@ -44,4 +44,6 @@
         padding-top: .14rem
         font-size: .2rem
         color: #a5a5a5
+  .router-link-exact-active .iconfont, .router-link-exact-active .sub-text
+    color: #fd5151 !important
 </style>
