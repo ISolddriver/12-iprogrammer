@@ -21,9 +21,13 @@
             <div class="con-text">{{item.conText}}</div>
           </div>
           <div class="con-bottom-comment">
-            <i class="iconfont comment-icon like">&#xe64c;</i>
+            <i class="iconfont comment-icon like" 
+               @click="handleLikeClick"
+               :class="[activeLike ? 'addLike' : '']">&#xe64c;</i>
             <i class="iconfont comment-icon comment">&#xe648;</i>
-            <i class="iconfont comment-icon collect">&#xe64d;</i>
+            <i class="iconfont comment-icon collect"
+               @click="handleCollectClick"
+               :class="[activeCollect ? 'addCollect' : '']">&#xe64d;</i>
             <i class="statis">评论(<p class="number">{{item.like}}</p>)</i>
           </div>
         </div>
@@ -41,7 +45,9 @@
     data () {
       return {
         conInfo: [],
-        isLoading: false
+        isLoading: false,
+        activeLike: false,
+        activeCollect: false
       }
     },
     watch: {
@@ -86,6 +92,20 @@
       },
       handleDataError () {
         console.log('error')
+      },
+      handleLikeClick () {
+        if (this.activeLike === false) {
+          this.activeLike = true
+        } else {
+          this.activeLike = false
+        }
+      },
+      handleCollectClick () {
+        if (this.activeCollect === false) {
+          this.activeCollect = true
+        } else {
+          this.activeCollect = false
+        }
       }
     },
     created () {
@@ -175,10 +195,14 @@
           top: 0
           left: 50%
           font-size: .4rem!important
+        .addLike
+          color: #ff5050
         .comment
           left: 60%
         .collect
           left: 70%
+        .addCollect
+          color: #f2af05
         .statis
           display: flex
           position: absolute
