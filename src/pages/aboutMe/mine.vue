@@ -44,11 +44,8 @@
 				<span class="iconfont arrowRight">&#xe61b;</span>
 			</div>
 		</div>
-<<<<<<< HEAD
-
-=======
 		<footer-con></footer-con>
->>>>>>> 2018-1-12
+
 	</div>
 </template>
 <script>

@@ -5,12 +5,11 @@
 			<div class="recommendBtn">推荐频道</div>
 		</div>
 		<search-info></search-info>
-		<content-list></content-list>
+		<content-list :list="list"></content-list>
     <footer-con></footer-con>
 	</div>
 </template>
 <script>
-  import footerNav from '../../components/footer/footer'
   import searchInfo from './searchInput.vue'
   import contentList from './content.vue'
   import footerCon from '../../components/footer/footer'
