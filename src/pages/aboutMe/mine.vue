@@ -2,10 +2,11 @@
 	<div>
 		<div class="info">
 			<img src="../error.jpg" class="photo">
-			<p class="name">
+			<p class="name" v-show="showInfo">
 				<router-link tap="span" class="login" to="/login">登陆</router-link> / 
 				<router-link tap="span" class="register" to="register">注册</router-link>
 			</p>
+			<p class="name" v-show="!showInfo">{{username}}</p>
 			<div class="contact">
 				<img src="../../images/1.jpg" class="pic">
 				<span class="ipNum">IP号：23453322</span>
@@ -52,8 +53,27 @@
   import footerCon from '../../components/footer/footer'
   export default {
     name: 'mine',
+    data () {
+      return {
+        showInfo: true,
+        username: ''
+      }
+    },
     components: {
       footerCon
+    },
+    methods: {
+      changeUserInfo () {
+        if (window.localStorage.username) {
+          this.showInfo = !this.showInfo
+          this.username = window.localStorage.username
+        } else {
+          this.showInfo = true
+        }
+      }
+    },
+    created () {
+      this.changeUserInfo()
     }
   }
 </script>

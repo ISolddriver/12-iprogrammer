@@ -13,16 +13,7 @@
 				<input type="password" placeholder="请输入密码" class="inputCon" @blur="handlePassword">
 			</div>
 
-			<div>
-				<div class="leftBox">
-					<input type="checkbox" id="password"><label for="password" class="pwdLabel">记住密码</label>
-				</div>
-
-				<div class="rightBox">
-					<input type="checkbox" id="autoLogin"><label for="autoLogin" class="loginLabel">自动登录</label>
-				</div>				
-			</div>
-
+			
 			<div>
 				<div class="loginBtn" @click="handleLogin">登陆</div>
 			</div>
@@ -64,6 +55,7 @@
         this.nameConfirm = res.data.ret
         this.passwordInfo = res.data.data.password
         this.nameConfirm = true
+        window.localStorage.username = this.username
         console.log(this.passwordInfo)
       },
       handleErr () {
@@ -101,8 +93,7 @@
 		margin: 0 auto
 		text-align: center
 		.area
-			display: flex
-			
+			display: flex			
 			height: .80rem
 			margin-bottom: .2rem 
 			.icon
@@ -118,19 +109,7 @@
 				padding-left: .15rem
 				flex: 1
 				height: .80rem
-
-	.leftBox
-		position: absolute
-		left: 1.2rem 
-		color: #fff
-		label
-			margin-left: .2rem;
-	.rightBox
-		position: absolute
-		right: 1.2rem
-		color: #fff
-		label
-			margin-left: .2rem;		
+		
 	.loginBtn
 		height: .8rem
 		width: 5.55rem
@@ -147,9 +126,8 @@
 		position: absolute
 		right: 1.2rem
 		color: #fff
-
 	.footer 
-		margin-top: 1.6rem
+		margin-top: 1rem
 		color: #fff
 		.loginIcon
 			display: inline-block
