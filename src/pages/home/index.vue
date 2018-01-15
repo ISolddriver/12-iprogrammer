@@ -1,6 +1,5 @@
 <template>
   <div class="main">
-    <home-mask class="mask"></home-mask>
     <home-header @currentTab="handlePage"></home-header>
     <home-search></home-search>
     <prince :is="currentTab" class="scroller" keep-alive></prince>
@@ -15,7 +14,6 @@
   import homeClassify from './homeClassify'
   import homeRec from './homeRec'
   import footerCon from '../../components/footer/footer'
-  import homeMask from './mask'
   export default {
     name: 'Home',
     data () {
@@ -29,8 +27,7 @@
       homeAttention,
       homeClassify,
       homeRec,
-      footerCon,
-      homeMask
+      footerCon
     },
     methods: {
       handlePage (page) {

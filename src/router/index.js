@@ -6,6 +6,7 @@ import Discovery from '@/pages/discovery/discovery'
 import Exchange from '@/pages/exchange/exchange'
 import Mine from '@/pages/aboutMe/Mine'
 import Index from '@/pages/home/index'
+import Mask from '../components/mask/mask'
 
 Vue.use(Router)
 
@@ -13,6 +14,10 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'mask',
+      component: Mask
+    },{
+      path: '/index',
       name: 'index',
       component: Index
     }, {
