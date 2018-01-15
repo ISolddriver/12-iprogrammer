@@ -23,11 +23,11 @@
           <div class="con-bottom-comment">
             <i class="iconfont comment-icon like" 
                @click="handleLikeClick"
-               :class="[activeLike ? 'addLike' : '']">&#xe64c;</i>
+               >&#xe64c;</i>
             <i class="iconfont comment-icon comment">&#xe648;</i>
             <i class="iconfont comment-icon collect"
                @click="handleCollectClick"
-               :class="[activeCollect ? 'addCollect' : '']">&#xe64d;</i>
+               >&#xe64d;</i>
             <i class="statis">评论(<p class="number">{{item.like}}</p>)</i>
           </div>
         </div>
@@ -93,19 +93,33 @@
       handleDataError () {
         console.log('error')
       },
-      handleLikeClick () {
+      handleLikeClick (e) {
         if (this.activeLike === false) {
+          e.target.className = 'iconfont comment-icon like addLike'
           this.activeLike = true
         } else {
+          e.target.className = 'iconfont comment-icon like'
           this.activeLike = false
         }
+        axios.get('/api/homecon.json?' + this.activeLike)
+         .then(this.handleLikeSucc.bind(this))
       },
-      handleCollectClick () {
+      handleLikeSucc (res) {
+        console.log(res)
+      },
+      handleCollectClick (e) {
         if (this.activeCollect === false) {
+          e.target.className = 'iconfont comment-icon collect addCollect'
           this.activeCollect = true
         } else {
+          e.target.className = 'iconfont comment-icon collect'
           this.activeCollect = false
         }
+        axios.get('/api/homecon.json?' + this.activeCollect)
+         .then(this.handleCollectSucc.bind(this))
+      },
+      handleCollectSucc (res) {
+        console.log(res)
       }
     },
     created () {

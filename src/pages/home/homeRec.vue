@@ -21,9 +21,13 @@
             <div class="con-text">{{item.conText}}</div>
           </div>
           <div class="con-bottom-comment">
-            <i class="iconfont comment-icon like">&#xe64c;</i>
+            <i class="iconfont comment-icon like" 
+               @click="handleLikeClick"
+               >&#xe64c;</i>
             <i class="iconfont comment-icon comment">&#xe648;</i>
-            <i class="iconfont comment-icon collect">&#xe64d;</i>
+            <i class="iconfont comment-icon collect"
+               @click="handleCollectClick"
+               >&#xe64d;</i>
             <i class="statis">评论(<p class="number">{{item.like}}</p>)</i>
           </div>
         </div>
@@ -42,7 +46,9 @@
     data () {
       return {
         conInfo: [],
-        isLoading: false
+        isLoading: false,
+        activeLike: false,
+        activeCollect: false
       }
     },
     watch: {
@@ -87,6 +93,34 @@
       },
       handleDataError () {
         console.log('error')
+      },
+      handleLikeClick (e) {
+        if (this.activeLike === false) {
+          e.target.className = 'iconfont comment-icon like addLike'
+          this.activeLike = true
+        } else {
+          e.target.className = 'iconfont comment-icon like'
+          this.activeLike = false
+        }
+        axios.get('/api/homecon.json?' + this.activeLike)
+         .then(this.handleLikeSucc.bind(this))
+      },
+      handleLikeSucc (res) {
+        console.log(res)
+      },
+      handleCollectClick (e) {
+        if (this.activeCollect === false) {
+          e.target.className = 'iconfont comment-icon collect addCollect'
+          this.activeCollect = true
+        } else {
+          e.target.className = 'iconfont comment-icon collect'
+          this.activeCollect = false
+        }
+        axios.get('/api/homecon.json?' + this.activeCollect)
+         .then(this.handleCollectSucc.bind(this))
+      },
+      handleCollectSucc (res) {
+        console.log(res)
       }
     },
     created () {
@@ -173,10 +207,14 @@
           top: 0
           left: 50%
           font-size: .4rem!important
+        .addLike
+          color: #ff5050
         .comment
           left: 60%
         .collect
           left: 70%
+        .addCollect
+          color: #f2af05
         .statis
           display: flex
           position: absolute
