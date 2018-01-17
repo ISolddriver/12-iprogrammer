@@ -9,7 +9,7 @@
 			</div>
 			<div class="inputItem">
 				<span class="inputDes">密码</span> 
-				<input type="password" class="des" @blur="handlePassword" placeholder="6-12位密码">
+				<input type="password" class="des" @input="handlePassword" placeholder="6-12位密码">
 			</div>
 		</div>
 	</div>
@@ -51,8 +51,16 @@
         console.log('bad username')
       },
       handlePassword (e) {
-        this.password = e.target.value
-        axios.get('/api/password.json?' + this.password)
+        const pwd = e.target.value
+        var reg = /^[a-zA-Z]\w{6,12}$/
+        if (reg.test(pwd)) {
+          this.handleAddPassword(pwd)
+        }
+      },
+      handleAddPassword (pwd) {
+        // console.log(pwd)
+        const password = pwd
+        axios.get('/api/password.json?' + password)
          .then(this.handlePasswordSucc.bind(this))
          .catch(this.handlePasswordErr.bind(this))
       },

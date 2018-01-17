@@ -8,10 +8,10 @@
 		</div>
 		<user-info v-show="allRight" @confirm="handleConfirm"></user-info>
 
-		<div class="btn" @click="handleLogin">注册</div>
+		<div class="btn" @click="handleRegister">注册</div>
 		<p class="btnDes">点击“获取验证码”按钮，表示同意<span class="agreement"> 注册协议</span></p>
 		<div class="queryNumber">
-			<span>已有账号？</span><span style="color: #d00" class="login">点击登录</span>
+			<span>已有账号？</span><span style="color: #d00" class="login" @click="handleLogin">点击登录</span>
 		</div>		
 	</div>
 </template>
@@ -55,10 +55,13 @@
           this.infoConfirm = true
         }
       },
-      handleLogin () {
+      handleRegister () {
         if (this.allRight && this.infoConfirm) {
           this.$router.push({path: '/login'})
         }
+      },
+      handleLogin () {
+        this.$router.push({path: '/login'})
       }
     }
   }

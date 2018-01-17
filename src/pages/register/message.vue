@@ -2,7 +2,7 @@
 	<div class="inputCon">
 		<div class="inputItem">
 				<span class="inputDes">短信验证码</span> 
-				<input type="text" class="des" @blur="handleInputCode">
+				<input type="text" class="des" @input="handleInputCode">
 				<span class="verificationCode" @click="handleGetCode">点击获取验证码</span>
 		</div>
 	</div>

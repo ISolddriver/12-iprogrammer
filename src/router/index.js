@@ -16,7 +16,7 @@ export default new Router({
       path: '/',
       name: 'mask',
       component: Mask
-    },{
+    }, {
       path: '/index',
       name: 'index',
       component: Index

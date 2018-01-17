@@ -19,7 +19,7 @@
 			</div>
 			<div>
 				<a href="javascript:;" class="forgotPwd">忘记密码？</a>
-				<a href="javascript:;" class="registerNow">立即注册</a>
+				<a href="javascript:;" class="registerNow" @click="hadleRegister">立即注册</a>
 			</div>
 			<div class="footer">
 				<i>第三方登录</i><br>
@@ -69,8 +69,11 @@
       },
       handleLogin () {
         if (this.pwdConfirm && this.nameConfirm) {
-          this.$router.push({path: '/'})
+          this.$router.push({path: '/index'})
         }
+      },
+      hadleRegister () {
+        this.$router.push({path: '/register'})
       }
     }
   }

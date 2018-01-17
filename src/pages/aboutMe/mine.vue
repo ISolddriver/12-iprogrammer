@@ -1,14 +1,16 @@
 <template>
 	<div>
 		<div class="info">
-			<img src="../error.jpg" class="photo">
+			<div class="photoCon">
+				<img src="../error.jpg" class="photo">				
+			</div>			
 			<p class="name" v-show="showInfo">
 				<router-link tap="span" class="login" to="/login">登陆</router-link> / 
 				<router-link tap="span" class="register" to="register">注册</router-link>
 			</p>
 			<p class="name" v-show="!showInfo">{{username}}</p>
-			<div class="contact">
-				<img src="../../images/1.jpg" class="pic">
+			<div class="contact">				
+				<img src="../../images/1.jpg" class="pic">								
 				<span class="ipNum">IP号：23453322</span>
 			</div>
 			<p class="introduce">个人简介: 一个大胖子</p>
@@ -84,22 +86,28 @@
 		text-align: center
 		color: #fff
 		background: url(../../images/minebg.jpg) no-repeat center center
-		.photo
+		.photoCon
 			width: 1.46rem
-			height: 1.46rem
-			border-radius: .73rem
-			margin: .92rem 0 .2rem 0
+			height: 0
+			padding-bottom: 1.46rem
+			text-align: center
+			.photo
+				display: inline-block
+				width: 100%
+				margin-top: .4rem
+				margin-left: 3rem
+				border-radius: .73rem
 		.name
-			margin-bottom: .2rem
+			margin: .8rem 0 .2rem 0
 			font-size: .36rem
 			.register, .login
 				color: #fff
 		.contact
 			font-size: .24rem
 			margin-bottom: .2rem
-			.pic
-				width: .32rem
-				height: .32rem
+		.pic
+			width: .32rem
+			height: .32rem
 		.introduce
 			font-size: .36rem
 		.data
