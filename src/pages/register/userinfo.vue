@@ -9,7 +9,7 @@
 			</div>
 			<div class="inputItem">
 				<span class="inputDes">密码</span> 
-				<input type="password" class="des" @input="handlePassword" placeholder="6-12位密码">
+				<input type="password" class="des" @blur="handlePassword" placeholder="6-12位密码">
 			</div>
 		</div>
 	</div>
@@ -18,6 +18,7 @@
   import axios from 'axios'
   export default {
     name: 'userinfo',
+    props: ['phoneNum'],
     data () {
       return {
         username: '',
@@ -35,7 +36,7 @@
         if (reg.test(this.username)) {
           this.nameRight = true
           this.nameError = false
-          axios.get('/api/userInfo.json?' + this.username)
+          axios.get('/user.action?act=check&userName=' + this.username)
          .then(this.handleUsernameSucc.bind(this))
          .catch(this.handleUsernameErr.bind(this))
         } else {
@@ -44,40 +45,40 @@
         }
       },
       handleUsernameSucc (res) {
+        console.log(res)
         res.data.ret ? this.nameConfirm = true : this.nameConfirm = false
         console.log(this.nameConfirm)
       },
       handleUsernameErr () {
         console.log('bad username')
       },
-      handlePassword (e) {
+      handlePassword (e) {  
         const pwd = e.target.value
         var reg = /^[a-zA-Z]\w{6,12}$/
-        if (reg.test(pwd)) {
-          this.handleAddPassword(pwd)
-        }
+        console.log('密码ok')
+        this.handleAddPassword(pwd)
       },
       handleAddPassword (pwd) {
-        // console.log(pwd)
+        console.log(pwd, this.phoneNum, this.username)
         const password = pwd
-        axios.get('/api/password.json?' + password)
-         .then(this.handlePasswordSucc.bind(this))
-         .catch(this.handlePasswordErr.bind(this))
-      },
-      handlePasswordSucc (res) {
-        res.data.ret ? this.pwdConfirm = true : this.pwdConfirm = false
-        console.log(this.pwdConfirm)
-        this.getStatus()
-      },
-      handlePasswordErr () {
-        console.log('error')
-      },
-      getStatus () {
-        var info = {
-          nameConfirm: this.nameConfirm,
-          pwdConfirm: this.pwdConfirm
+        const userInfo = {
+          password: password,
+          username: this.username
         }
-        this.$emit('confirm', info)
+        this.getStatus(userInfo)
+      },
+      // handlePasswordSucc (res) {
+      //   console.log(res)
+      //   res.data.ret ? this.pwdConfirm = true : this.pwdConfirm = false
+      //   console.log(this.pwdConfirm)
+      //   this.getStatus()
+      // },
+      // handlePasswordErr () {
+      //   console.log('error')
+      // },
+      getStatus (userInfo) {
+        console.log('给父组件传递用户名，密码')
+        this.$emit('confirm', userInfo)
       }
     }
   }

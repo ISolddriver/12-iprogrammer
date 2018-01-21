@@ -47,28 +47,34 @@
     methods: {
       handleUserName (e) {
         this.username = e.target.value
-        axios.get('/api/login.json')
+        console.log(this.username)
+        axios.post('/user.action?act=checkLoginName&userName=' + this.username)
          .then(this.handleSucc.bind(this))
          .catch(this.handleErr.bind(this))
       },
       handleSucc (res) {
+        console.log(res)
         this.nameConfirm = res.data.ret
-        this.passwordInfo = res.data.data.password
+        if (this.nameConfirm) {
+          this.handleLogin()
+        }
         this.nameConfirm = true
         window.localStorage.username = this.username
-        console.log(this.passwordInfo)
+        console.log(res)
+        // console.log(this.passwordInfo)
       },
       handleErr () {
         console.log('error in login')
       },
       handlePassword (e) {
         this.password = e.target.value
-        if (this.password === this.passwordInfo) {
-          this.pwdConfirm = true
-        }
       },
       handleLogin () {
-        if (this.pwdConfirm && this.nameConfirm) {
+        axios.get('/user.action?act=login&userName='+ this.username +'&password=' + this.password)
+         .then(this.handleLoginSucc.bind(this))
+      },
+      handleLoginSucc (res) {
+        if (res.data.ret) {
           this.$router.push({path: '/index'})
         }
       },

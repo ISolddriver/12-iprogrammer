@@ -9,16 +9,16 @@
           <div class="imgBox">
             <img class="conImg" :src="'../../static/img/' + item.headImg" alt="">
           </div>
-          <div class="author">{{item.author}}<i class="shareText">的分享</i></div>
+          <div class="author">{{item.nickname}}<i class="shareText">的分享</i></div>
           <div class="more"><i class="iconfont">&#xe66c;</i></div>
         </div>
         <div class="con-bottom">
           <div class="con-bottom-img">
-            <img class="con-img" :src="'../../static/img/' + item.conImg" alt="">
+            <img class="con-img" :src="'../../static/img/' + item.cover" alt="">
           </div>
           <div class="con-bottom-word">
-            <div class="con-title">{{item.contitle}}</div>
-            <div class="con-text">{{item.conText}}</div>
+            <div class="con-title">{{item.title}}</div>
+            <div class="con-text">{{item.content}}</div>
           </div>
           <div class="con-bottom-comment">
             <i class="iconfont comment-icon like" 
@@ -28,7 +28,7 @@
             <i class="iconfont comment-icon collect"
                @click="handleCollectClick"
                >&#xe64d;</i>
-            <i class="statis">评论(<p class="number">{{item.like}}</p>)</i>
+            <i class="statis">评论(<p class="number">{{item.viewCount}}</p>)</i>
           </div>
         </div>
       </div>
@@ -47,8 +47,10 @@
       return {
         conInfo: [],
         isLoading: false,
+        isFetching: false,
         activeLike: false,
-        activeCollect: false
+        activeCollect: false,
+        pageNum: 3
       }
     },
     watch: {
@@ -79,14 +81,22 @@
       },
 
       getIndexData () {
-        axios.get('/static/homecon.json')
-          .then(this.handleGetDataSucc.bind(this))
+        if (!this.isFetching) {
+          this.isFetching = true
+          axios.get('/blog/index.action?page=' + this.pageNum)
+            .then(this.handleGetDataSucc.bind(this))
+            .catch(this.handleDataError.bind(this))
+        }
       },
 
       handleGetDataSucc (res) {
         res = res ? res.data : null
-        if (res && res.ret && res.data) {
-          this.conInfo = res.data.recommend
+        if (res && res.data) {
+          if (res.data.blogs) {
+            this.conInfo = this.conInfo.concat(res.data.blogs)
+            this.pageNum += 1
+          }
+          this.isFetching = false
         } else {
           this.handleDataError()
         }
@@ -132,7 +142,6 @@
     }
   }
 </script>
-
 <style scoped lang="stylus">
   @import '../../assets/style/common/varibles.styl'
   .loading

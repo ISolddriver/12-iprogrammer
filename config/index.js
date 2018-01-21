@@ -11,12 +11,25 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
+        '/user.action': {
+        target: 'http://10.9.168.28:8080',
+        pathRewrite: {
+          '^/user.action': '/user.action'
+        }
+      },
+        '/blog': {
+        target: 'http://10.9.168.33:8080',
+        pathRewrite: {
+          '^/blog': '/blog'
+        }
+      },
         '/api': {
         target: 'http://localhost:8080',
         pathRewrite: {
           '^/api': '/static'
         }
       }
+
     },
 
     // Various Dev Server settings

@@ -28,7 +28,7 @@
     },
     methods: {
       getDiscoverData () {
-        axios.get('/api/discovery.json')
+        axios.get('/static/discovery.json')
          .then(this.handleDataSucc.bind(this))
          .catch(this.handleError.bind(this))
       },

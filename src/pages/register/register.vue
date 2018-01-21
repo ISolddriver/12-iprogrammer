@@ -4,9 +4,9 @@
 		<img src="../../images/logo.png" alt="">
 		<div class="inputCon" v-show="hide">
 			<phone-num @phoneNumConfirm="handlePhoneNum"></phone-num>			
-			<message @messageCode="handleMessageCode"></message>			
+			<message @messageCode="handleMessageCode" :phoneNum="phoneNum"></message>			
 		</div>
-		<user-info v-show="allRight" @confirm="handleConfirm"></user-info>
+		<user-info v-show="allRight" @confirm="handleConfirm" :phoneNum="phoneNum"></user-info>
 
 		<div class="btn" @click="handleRegister">注册</div>
 		<p class="btnDes">点击“获取验证码”按钮，表示同意<span class="agreement"> 注册协议</span></p>
@@ -19,6 +19,7 @@
   import phoneNum from './phoneNum'
   import message from './message'
   import userInfo from './userInfo'
+  import axios from 'axios'
   export default {
     name: 'register',
     components: {
@@ -28,17 +29,22 @@
     },
     data () {
       return {
-        phoneNum: false,
+        phoneNum: '',
+        phoneInfo: false,
         verification: false,
         allRight: false,
         hide: true,
-        infoConfirm: false
+        infoConfirm: false,
+        username: '',
+        password: ''
       }
     },
     methods: {
-      handlePhoneNum (numInfo) {
-        this.phoneNum = numInfo
-        if (this.phoneNum) {
+      handlePhoneNum (Info) {
+      	console.log(Info.phoneNum)
+        this.phoneNum = Info.phoneNum
+        this.phoneInfo = Info.phoneInfo
+        if (this.phoneInfo) {
           this.handleMessageCode()
         }
       },
@@ -50,15 +56,24 @@
         }
       },
       handleConfirm (info) {
-        var infoRight = info
-        if (infoRight.nameConfirm && infoRight.pwdConfirm) {
-          this.infoConfirm = true
-        }
+        console.log(info)
+        this.username = info.username
+        this.password = info.password
+        console.log('点击登录' + this.username, this.password)
+        // if (infoRight.nameConfirm && infoRight.pwdConfirm) {
+        //   this.infoConfirm = true
+        // }
       },
       handleRegister () {
-        if (this.allRight && this.infoConfirm) {
-          this.$router.push({path: '/login'})
-        }
+        axios.get('/user.action?act=add&phone=' + this.phoneNum + '&userName=' + this.username +'&password=' + this.password)
+         .then(this.handlePasswordSucc.bind(this))
+         .catch(this.handlePasswordErr.bind(this))
+      },
+      handlePasswordSucc (res) {
+      	if (res.data.ret) {
+      	  console.log('login succ')
+          this.$router.push({path: '/index'})
+      	}
       },
       handleLogin () {
         this.$router.push({path: '/login'})

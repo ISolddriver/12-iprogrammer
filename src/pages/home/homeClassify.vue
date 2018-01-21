@@ -18,11 +18,12 @@
     },
     methods: {
       getIndexData () {
-        axios.get('/static/homecon.json')
+        axios.get('/category.action?act=list')
           .then(this.handleGetDataSucc.bind(this))
       },
 
       handleGetDataSucc (res) {
+        console.log(res)
         res = res ? res.data : null
         if (res && res.ret && res.data) {
           this.classifyInfo = res.data.classify

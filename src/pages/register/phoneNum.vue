@@ -35,15 +35,21 @@
           this.right = false
         }
       },
-      getRegisterInfo (code) {
-        var codeNum = code
-        axios.get('/api/register.json?' + codeNum)
+      getRegisterInfo (phoneNum) {
+        console.log(this.phoneNum)
+        this.phoneNum = phoneNum
+        axios.get('/user.action?act=checkPhone&phone=' + this.phoneNum)
          .then(this.handleSucc.bind(this))
          .catch(this.handleError.bind(this))
       },
       handleSucc (res) {
+        console.log(res)
         this.phoneInfo = res.data.ret
-        this.$emit('phoneNumConfirm', this.phoneInfo)
+        const info = { 
+          phoneInfo: this.phoneInfo,
+          phoneNum: this.phoneNum
+        }
+        this.$emit('phoneNumConfirm', info)
       },
       handleError () {
         this.phoneInfo = false
