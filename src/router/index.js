@@ -7,6 +7,7 @@ import Exchange from '@/pages/exchange/exchange'
 import Mine from '@/pages/aboutMe/Mine'
 import Index from '@/pages/home/index'
 import Mask from '../components/mask/mask'
+import Publish from '@/pages/exchange/publish/publish'
 
 Vue.use(Router)
 
@@ -28,6 +29,10 @@ export default new Router({
       path: '/exchange',
       name: 'exchange',
       component: Exchange
+    }, {
+      path: '/publish',
+      name: 'publish',
+      component: Publish
     }, {
       path: '/mine',
       name: 'mine',
