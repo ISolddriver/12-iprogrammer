@@ -1,7 +1,7 @@
 <template>
   <div class="footer border-top">
     <router-link tag="div" to="/index" class="subfield">
-      <p class="iconfont sub-icon">&#xe65d;</p><p class="sub-text">首页</p>
+      <p class="iconfont sub-icon">&#xe65d;</p><p class="sub-text" @click="handleClick">首页</p>
     </router-link>
     <router-link tag="div" to="/discovery" class="subfield">
       <p class="iconfont sub-icon">&#xe65a;</p><p class="sub-text">发现</p>
@@ -17,7 +17,12 @@
 
 <script>
   export default {
-    name: 'foot-con'
+    name: 'foot-con',
+    methods: {
+      handleClick () {
+        console.log(111)
+      }
+    }
   }
 </script>
 

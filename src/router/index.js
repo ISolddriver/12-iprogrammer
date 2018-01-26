@@ -45,10 +45,6 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login
-    }, {
-      path: '/publish',
-      name: 'mypublish',
-      component: MyPublish
     }
   ]
 })
