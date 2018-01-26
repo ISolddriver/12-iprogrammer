@@ -70,7 +70,7 @@
         this.password = e.target.value
       },
       handleLogin () {
-        axios.get('/user.action?act=login&userName='+ this.username +'&password=' + this.password)
+        axios.get('/user.action?act=login&userName=' + this.username + '&password=' + this.password)
          .then(this.handleLoginSucc.bind(this))
       },
       handleLoginSucc (res) {

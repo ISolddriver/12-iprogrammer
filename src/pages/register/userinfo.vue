@@ -32,7 +32,7 @@
     methods: {
       handleUsername (e) {
         this.username = e.target.value
-        var reg = /^[\u4e00-\u9fff\w]{5,16}$/
+        const reg = /^[\u4e00-\u9fff\w]{5,16}$/
         if (reg.test(this.username)) {
           this.nameRight = true
           this.nameError = false
@@ -52,9 +52,9 @@
       handleUsernameErr () {
         console.log('bad username')
       },
-      handlePassword (e) {  
+      handlePassword (e) {
         const pwd = e.target.value
-        var reg = /^[a-zA-Z]\w{6,12}$/
+        // const reg = /^[a-zA-Z]\w{6,12}$/
         console.log('密码ok')
         this.handleAddPassword(pwd)
       },

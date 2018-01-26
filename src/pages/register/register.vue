@@ -41,7 +41,7 @@
     },
     methods: {
       handlePhoneNum (Info) {
-      	console.log(Info.phoneNum)
+        console.log(Info.phoneNum)
         this.phoneNum = Info.phoneNum
         this.phoneInfo = Info.phoneInfo
         if (this.phoneInfo) {
@@ -65,15 +65,15 @@
         // }
       },
       handleRegister () {
-        axios.get('/user.action?act=add&phone=' + this.phoneNum + '&userName=' + this.username +'&password=' + this.password)
+        axios.get('/user.action?act=add&phone=' + this.phoneNum + '&userName=' + this.username + '&password=' + this.password)
          .then(this.handlePasswordSucc.bind(this))
          .catch(this.handlePasswordErr.bind(this))
       },
       handlePasswordSucc (res) {
-      	if (res.data.ret) {
-      	  console.log('login succ')
+        if (res.data.ret) {
+          console.log('login succ')
           this.$router.push({path: '/index'})
-      	}
+        }
       },
       handleLogin () {
         this.$router.push({path: '/login'})

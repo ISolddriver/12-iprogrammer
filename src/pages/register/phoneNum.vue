@@ -45,7 +45,7 @@
       handleSucc (res) {
         console.log(res)
         this.phoneInfo = res.data.ret
-        const info = { 
+        const info = {
           phoneInfo: this.phoneInfo,
           phoneNum: this.phoneNum
         }
