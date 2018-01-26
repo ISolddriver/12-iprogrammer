@@ -8,6 +8,7 @@ import Mine from '@/pages/aboutMe/Mine'
 import Index from '@/pages/home/index'
 import Mask from '../components/mask/mask'
 import Publish from '@/pages/exchange/publish/publish'
+import MyPublish from '@/pages/mypublish/mypublish'
 
 Vue.use(Router)
 
@@ -45,6 +46,10 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login
+    }, {
+      path: '/mypublish',
+      name: 'mypublish',
+      component: MyPublish
     }
   ]
 })

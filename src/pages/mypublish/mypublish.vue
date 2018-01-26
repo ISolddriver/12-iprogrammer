@@ -63,7 +63,7 @@
     }
   }
 </script>
-<style lang='stylus' scoped>
+<style scoped lang="stylus">
 	.publish-container
 		position: absolute
 		display: flex
