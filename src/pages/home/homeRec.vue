@@ -50,7 +50,7 @@
         isFetching: false,
         activeLike: false,
         activeCollect: false,
-        pageNum: 3
+        pageNum: 10
       }
     },
     watch: {

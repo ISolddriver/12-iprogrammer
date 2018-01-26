@@ -19,12 +19,12 @@
         </div>
         <p class="nav-txt">@我的</p>
       </div>
-      <div>
+      <router-link tag="div" to="/publish">
         <div class="nav-box" style="background: #e420f6">
           <i class="iconfont nav-icon">&#xe621;</i>
         </div>
         <p class="nav-txt">评论</p>
-      </div>
+      </router-link>
     </div>
     <mess-swiper :sliders="sliders"></mess-swiper>
   </div>
@@ -43,6 +43,7 @@
     components: {
       messSwiper
     },
+
     methods: {
       getIndexData () {
         axios.get('/static/messCon.json')
