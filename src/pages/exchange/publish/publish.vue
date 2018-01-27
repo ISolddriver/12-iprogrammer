@@ -54,18 +54,22 @@
       submitForm (event) {
         event.preventDefault()
         const formData = new FormData()
-        formData.append('file', this.file)
-        formData.append('title', this.title)
-        formData.append('text', this.text)
-        formData.append('selected', this.selected)
+        if (this.title === '' || this.text === '' || this.selected === '') {
+          alert('请填写全')
+        } else {
+          formData.append('file', this.file)
+          formData.append('title', this.title)
+          formData.append('text', this.text)
+          formData.append('selected', this.selected)
 
-        const config = {
-          headers: {'Content-Type': 'multipart/form-data'}
+          const config = {
+            headers: {'Content-Type': 'multipart/form-data'}
+          }
+
+          axios.post('/api/user.json', formData, config)
+           .then(this.handleSendSucc.bind(this))
+           .catch(this.handleSendErr.bind(this))
         }
-
-        axios.post('/api/user.json', formData, config)
-         .then(this.handleSendSucc.bind(this))
-         .catch(this.handleSendErr.bind(this))
       },
       handleSendSucc (res) {
         console.log(res)
@@ -116,7 +120,8 @@
         right: .4rem
         height: .6rem
         padding-left: .2rem
-        background: linear-gradient(to bottom, #ccc, #fff, #f1f1f1)
+        border-radius: .2rem
+        background: linear-gradient(to bottom, #f1f1f1, #ddd, #f7f7f7)
     .textarea-border
       margin-top: .2rem
       margin-left: 4%

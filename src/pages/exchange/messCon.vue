@@ -1,29 +1,29 @@
 <template>
   <div class="mess">
     <div class="mess-nav border-bottom">
-      <div>
+      <router-link tag="div" to="/funs">
         <div class="nav-box" style="background: #098deb">
           <i class="iconfont nav-icon">&#xe676;</i>
         </div>
         <p class="nav-txt">粉丝</p>
-      </div>
+      </router-link>
       <div>
         <div class="nav-box" style="background: #f1097c">
           <i class="iconfont nav-icon">&#xe629;</i>
         </div>
         <p class="nav-txt">赞</p>
       </div>
-      <div>
+      <router-link tag="div" to="/mypublish">
         <div class="nav-box" style="background: #09f16c">
           <i class="iconfont nav-icon">&#xe622;</i>
         </div>
-        <p class="nav-txt">@我的</p>
-      </div>
+        <p class="nav-txt">我的发布</p>
+      </router-link>
       <router-link tag="div" to="/publish">
         <div class="nav-box" style="background: #e420f6">
           <i class="iconfont nav-icon">&#xe621;</i>
         </div>
-        <p class="nav-txt">评论</p>
+        <p class="nav-txt">发布文章</p>
       </router-link>
     </div>
     <mess-swiper :sliders="sliders"></mess-swiper>

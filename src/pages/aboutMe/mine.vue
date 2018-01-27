@@ -2,7 +2,7 @@
 	<div>
 		<div class="info">
 			<div class="photoCon">
-				<img src="../error.jpg" class="photo">				
+				<img src="./default.jpg" class="photo">				
 			</div>			
 			<p class="name" v-show="showInfo">
 				<router-link tap="span" class="login" to="/login">登陆</router-link> / 

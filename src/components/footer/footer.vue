@@ -29,8 +29,8 @@
 <style scoped lang="stylus">
   @import '../../assets/style/common/varibles.styl'
   .footer
-    display: flex;
-    position: fixed
+    display: flex
+    position: absolute
     bottom: 0
     left: 0
     right: 0

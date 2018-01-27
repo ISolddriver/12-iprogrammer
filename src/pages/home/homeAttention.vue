@@ -82,7 +82,7 @@
       getIndexData () {
         if (!this.isFetching) {
           this.isFetching = true
-          axios.get('/blog/index.action?page=' + this.pageNum)
+          axios.post('/blog/index.action?page=' + this.pageNum)
             .then(this.handleGetDataSucc.bind(this))
             .catch(this.handleDataError.bind(this))
         }

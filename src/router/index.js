@@ -9,6 +9,7 @@ import Index from '@/pages/home/index'
 import Mask from '../components/mask/mask'
 import Publish from '@/pages/exchange/publish/publish'
 import MyPublish from '@/pages/mypublish/mypublish'
+import Funs from '@/pages/exchange/myfuns/funs'
 
 Vue.use(Router)
 
@@ -50,6 +51,10 @@ export default new Router({
       path: '/mypublish',
       name: 'mypublish',
       component: MyPublish
+    }, {
+      path: '/funs',
+      name: 'funs',
+      component: Funs
     }
   ]
 })

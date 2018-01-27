@@ -7,14 +7,14 @@
       <div class="con border-topbottom" v-for="item in conInfo">
         <div class="con-top border-bottom">
           <div class="imgBox">
-            <img class="conImg" :src="'../../static/img/' + item.headImg" alt="">
+            <img class="conImg" :src="item.headImg" alt="">
           </div>
           <div class="author">{{item.nickname}}<i class="shareText">的分享</i></div>
           <div class="more"><i class="iconfont">&#xe66c;</i></div>
         </div>
         <div class="con-bottom">
           <div class="con-bottom-img">
-            <img class="con-img" :src="'../../static/img/' + item.cover" alt="">
+            <img class="con-img" :src="item.cover" alt="">
           </div>
           <div class="con-bottom-word">
             <div class="con-title">{{item.title}}</div>

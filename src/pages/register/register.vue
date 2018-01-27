@@ -1,6 +1,6 @@
 <template>
 	<div class="registerArea">
-		<div class="head"><i class="back iconfont">&#xe63f;</i>注册账号</div>
+		<div class="head"><i class="back iconfont" @click="handleBack">&#xe63f;</i>注册账号</div>
 		<img src="../../images/logo.png" alt="">
 		<div class="inputCon" v-show="hide">
 			<phone-num @phoneNumConfirm="handlePhoneNum"></phone-num>			
@@ -40,6 +40,9 @@
       }
     },
     methods: {
+      handleBack () {
+        this.$router.go(-1)
+      },
       handlePhoneNum (Info) {
         console.log(Info.phoneNum)
         this.phoneNum = Info.phoneNum

@@ -1,7 +1,7 @@
 <template>
   <div class="classify">
     <div class="width-box" v-for="item in classifyInfo">
-      <div class="classify-con" :style="{background: item.bgColor}">{{item.classifyName}}</div>
+      <div class="classify-con" style="background: #f2e221">{{item.name}}</div>
     </div>  
   </div>
 </template>
@@ -18,7 +18,7 @@
     },
     methods: {
       getIndexData () {
-        axios.get('/category.action?act=list')
+        axios.post('/category.action?act=list')
           .then(this.handleGetDataSucc.bind(this))
       },
 
@@ -26,7 +26,7 @@
         console.log(res)
         res = res ? res.data : null
         if (res && res.ret && res.data) {
-          this.classifyInfo = res.data.classify
+          this.classifyInfo = res.data.categories
           this.classifyBg = res.data.bgClassify
         } else {
           this.handleDataError()
@@ -58,4 +58,6 @@
         line-height: .8rem
         border-radius: .05rem
         background: #ffecdb
+        color: #fff
+        font-size: .32rem
 </style>
