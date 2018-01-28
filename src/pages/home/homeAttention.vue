@@ -4,7 +4,10 @@
       <transition name="loading">
         <div v-show="isLoading" class="loading">正在加载...</div>
       </transition>
-      <div class="con border-topbottom" v-for="item in conInfo">
+       <router-view/>
+      <div class="con border-topbottom"
+           v-for="(item, index) in conInfo"
+           >
         <div class="con-top border-bottom">
           <div class="imgBox">
             <img class="conImg" :src="'../../static/img/' + item.headImg" alt="">
@@ -16,7 +19,9 @@
           <div class="con-bottom-img">
             <img class="con-img" :src="'../../static/img/' + item.cover" alt="">
           </div>
-          <div class="con-bottom-word">
+          <div class="con-bottom-word" 
+               @click="handleArticleClick"
+               :data-index="index">
             <div class="con-title">{{item.title}}</div>
             <div class="con-text">{{item.content}}</div>
           </div>
@@ -130,7 +135,17 @@
       },
       handleCollectSucc (res) {
         console.log(res)
+      },
+
+      handleArticleClick (e) {
+        const target = e.currentTarget
+        const index = parseInt(target.getAttribute('data-index'), 10)
+        this.$router.push({
+          name: 'att-detail',
+          params: { id: index }
+        })
       }
+
     },
     created () {
       this.getIndexData()

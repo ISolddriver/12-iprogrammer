@@ -7,6 +7,7 @@ import Exchange from '@/pages/exchange/exchange'
 import Mine from '@/pages/aboutMe/Mine'
 import Index from '@/pages/home/index'
 import Mask from '../components/mask/mask'
+import AttDetail from '@/pages/home/att-detail'
 import Publish from '@/pages/exchange/publish/publish'
 
 Vue.use(Router)
@@ -20,7 +21,12 @@ export default new Router({
     }, {
       path: '/index',
       name: 'index',
-      component: Index
+      component: Index,
+      children: [{
+        path: ':id',
+        name: 'att-detail',
+        component: AttDetail
+      }]
     }, {
       path: '/discovery',
       name: 'discovery',
