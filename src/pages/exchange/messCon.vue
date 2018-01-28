@@ -7,12 +7,12 @@
         </div>
         <p class="nav-txt">粉丝</p>
       </router-link>
-      <div>
+      <router-link tag="div" to="/follow">
         <div class="nav-box" style="background: #f1097c">
           <i class="iconfont nav-icon">&#xe629;</i>
         </div>
-        <p class="nav-txt">赞</p>
-      </div>
+        <p class="nav-txt">关注</p>
+      </router-link>
       <router-link tag="div" to="/mypublish">
         <div class="nav-box" style="background: #09f16c">
           <i class="iconfont nav-icon">&#xe622;</i>

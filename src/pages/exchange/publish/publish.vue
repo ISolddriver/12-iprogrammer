@@ -66,7 +66,7 @@
             headers: {'Content-Type': 'multipart/form-data'}
           }
 
-          axios.post('/api/user.json', formData, config)
+          axios.post('/blog.action?act=add', formData, config)
            .then(this.handleSendSucc.bind(this))
            .catch(this.handleSendErr.bind(this))
         }

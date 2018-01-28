@@ -2,28 +2,32 @@
 	<div class="main">
 		<div class="head">
 			<i class="iconfont back" @click="handleBack">&#xe63f;</i>
-			Funs
+			关注
 		</div>
 		<div class="container">
-			<div class="item">
+			<!-- <div class="item">
 				<img class="headImg" src="../../default.jpg" alt="头像">
 				<div class="des-con">
 					<span class="nickname">昵称：于大炮</span>	<br>
 					<span class="des">简介：各位朋友，我是于大炮！我三舅贼屌</span>
 				</div>				
+			</div> -->
+			<div class="no-data">
+				<img class="no-data-img" src="../../../images/logo.png" alt="no-data">
+				<span>暂时没有人关注你哇!</span>
 			</div>
 		</div>
 	</div>
 </template>
 <script>
   export default {
-    name: 'my-funs',
+    name: 'follow',
     methods: {
       handleBack () {
         this.$router.go(-1)
       }
     }
-}
+  }
 </script>
 <style scoped lang="stylus">
 .main
@@ -65,4 +69,11 @@
 					overflow: hidden
 					text-overflow:ellipsis
 					white-space: nowrap
+		.no-data
+			width: 50%
+			height: 2rem
+			margin-left: 25%
+			text-align: center
+			.no-data-img
+				width: 100%
 </style>

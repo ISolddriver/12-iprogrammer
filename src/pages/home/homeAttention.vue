@@ -92,7 +92,7 @@
         res = res ? res.data : null
         if (res && res.data) {
           if (res.data.blogs) {
-            this.conInfo = this.conInfo.concat(res.data.blogs)
+            this.conInfo = this.conInfo.concat(res.data.blogs).reverse()
             this.pageNum += 1
           }
           this.isFetching = false

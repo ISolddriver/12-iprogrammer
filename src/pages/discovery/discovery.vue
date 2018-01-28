@@ -2,7 +2,6 @@
 	<div class="main">
 		<div class="head">
 			<div class="title">发现</div>
-			<div class="recommendBtn">推荐频道</div>
 		</div>
 		<search-info></search-info>
 		<content-list :list="list"></content-list>
@@ -62,8 +61,4 @@
 		.title 
 			text-align: center
 			font-size: 18px
-		.recommendBtn
-			position: absolute 
-			right: .4rem
-			top: 0
 </style>

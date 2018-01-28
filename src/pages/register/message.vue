@@ -2,8 +2,9 @@
 	<div class="inputCon">
 		<div class="inputItem">
 				<span class="inputDes">短信验证码</span> 
-				<input type="text" class="des" @blur="handleInputCode">
-				<span class="verificationCode" @click="handleGetCode">点击获取验证码</span>
+				<input type="text" class="des" @input="handleInputCode">
+				<span class="verificationCode" @click="handleGetCode" v-show="getCode">点击获取验证码</span>
+        <span class="retry" v-show="retry"> {{number}}s后重新发送 </span>
 		</div>
 	</div>
 </template>
@@ -16,12 +17,17 @@
       return {
         codeInfo: '0',
         codeNum: 0,
-        verification: false
+        verification: false,
+        number: 60,
+        timer: null,
+        retry: false,
+        getCode: true
       }
     },
     methods: {
       handleGetCode () {
         console.log(this.phoneNum)
+        this.handleNumber()
         axios.get('/user.action?act=sendCode&phone=' + this.phoneNum)
          .then(this.handleGetCodeSucc.bind(this))
          .catch(this.handleGetCodeErr.bind(this))
@@ -50,6 +56,19 @@
         console.log(res.data.ret)
         this.verification = res.data.ret
         this.$emit('messageCode', this.verification)
+      },
+      handleNumber () {
+        this.getCode = false
+        this.retry = true
+        this.timer = setInterval(this.setNumber.bind(this), 1000)
+      },
+      setNumber () {
+        this.number = this.number - 1
+        if (this.number === 0) {
+          clearInterval(this.timer)
+          this.getCode = true
+          this.retry = false
+        }
       }
     }
   }
@@ -77,4 +96,14 @@
 				border: none
 			.verificationCode
 				line-height: .88rem
+			.retry
+				display: inline-block
+				height: .6rem
+				width: 2.1rem
+				margin-top: .15rem
+				text-align: center
+				line-height: .6rem
+				border-radius: .2rem
+				background: #fe6869
+				color: #fff
 </style>

@@ -10,10 +10,9 @@
 			</div>
 			<div class="area">				
 				<i class="iconfont icon">&#xe608;</i>		
-				<input type="password" placeholder="请输入密码" class="inputCon" @blur="handlePassword">
+				<input type="password" placeholder="请输入密码" class="inputCon" @input="handlePassword">
 			</div>
-
-			
+			<span class="check" v-show="check" style="color: red">用户名密码错误！</span>			
 			<div>
 				<div class="loginBtn" @click="handleLogin">登陆</div>
 			</div>
@@ -41,7 +40,8 @@
         password: '',
         nameConfirm: false,
         pwdConfirm: false,
-        passwordInfo: ''
+        passwordInfo: '',
+        check: false
       }
     },
     methods: {
@@ -55,13 +55,8 @@
       handleSucc (res) {
         console.log(res)
         this.nameConfirm = res.data.ret
-        if (this.nameConfirm) {
-          this.handleLogin()
-        }
         this.nameConfirm = true
         window.localStorage.username = this.username
-        console.log(res)
-        // console.log(this.passwordInfo)
       },
       handleErr () {
         console.log('error in login')
@@ -70,13 +65,23 @@
         this.password = e.target.value
       },
       handleLogin () {
-        axios.get('/user.action?act=login&userName=' + this.username + '&password=' + this.password)
+        console.log(this.password)
+        axios.post('/user.action?act=login&userName=' + this.username + '&password=' + this.password)
          .then(this.handleLoginSucc.bind(this))
+         .catch(this.handleLoginErr.bind(this))
       },
       handleLoginSucc (res) {
+        console.log(res)
         if (res.data.ret) {
           this.$router.push({path: '/index'})
+        } else if (!res.data.ret) {
+          this.check = true
+        } else {
+          this.check = false
         }
+      },
+      handleLoginErr () {
+        console.log('请求错误!')
       },
       hadleRegister () {
         this.$router.push({path: '/register'})
@@ -122,7 +127,7 @@
 	.loginBtn
 		height: .8rem
 		width: 5.55rem
-		margin: .5rem auto
+		margin: .2rem auto .5rem
 		line-height: .8rem
 		border-radius: 5px
 		background: #fff
