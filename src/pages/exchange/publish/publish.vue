@@ -57,16 +57,16 @@
         if (this.title === '' || this.text === '' || this.selected === '') {
           alert('请填写全')
         } else {
-          formData.append('file', this.file)
+          formData.append('cover', this.file)
           formData.append('title', this.title)
-          formData.append('text', this.text)
+          formData.append('content', this.text)
           formData.append('selected', this.selected)
 
           const config = {
             headers: {'Content-Type': 'multipart/form-data'}
           }
 
-          axios.post('/api/user.json', formData, config)
+          axios.post('/blog.action?act=add', formData, config)
            .then(this.handleSendSucc.bind(this))
            .catch(this.handleSendErr.bind(this))
         }

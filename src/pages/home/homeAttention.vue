@@ -7,18 +7,20 @@
       <div class="con border-topbottom" v-for="item in conInfo">
         <div class="con-top border-bottom">
           <div class="imgBox">
-            <img class="conImg" :src="item.headImg" alt="">
+            <img class="conImg" v-lazy="item.headImg" alt="">
           </div>
           <div class="author">{{item.nickname}}<i class="shareText">的分享</i></div>
           <div class="more"><i class="iconfont more-icon">&#xe63d;</i></div>
         </div>
         <div class="con-bottom">
-          <div class="con-bottom-img">
-            <img class="con-img" :src="item.cover" alt="">
-          </div>
-          <div class="con-bottom-word">
-            <div class="con-title">{{item.title}}</div>
-            <div class="con-text">{{item.content}}</div>
+          <div @click="handleAttClick">
+            <div class="con-bottom-img">
+              <img class="con-img" :src="item.cover" alt="">
+            </div>
+            <div  :key="item.id"  class="con-bottom-word">
+              <div class="con-title">{{item.title}}</div>
+              <div class="con-text">{{item.content}}</div>
+            </div>
           </div>
           <div class="con-bottom-comment">
             <i class="iconfont comment-icon like" 
@@ -40,6 +42,7 @@
 <script>
   import BScroll from 'better-scroll'
   import axios from 'axios'
+  import { mapMutations } from 'vuex'
   export default {
     name: 'homeAttention',
     data () {
@@ -53,17 +56,26 @@
       }
     },
     watch: {
-      list () {
+      conInfo () {
         this.$nextTick(() => {
           this.scroller.refresh()
         })
       }
     },
     methods: {
+      ...mapMutations(['changeAtt']),
       createScroller () {
         this.scroller = new BScroll(this.$refs.scroller, {
           probeType: 2
         })
+      },
+      handleAttClick (e) {
+        const target = e.target.parentNode.parentNode
+        const img = target.children[0].children[0].src
+        const title = target.children[1].children[0].innerText
+        const content = target.children[1].children[1].innerText
+        this.changeAtt({titles: title, imgUrls: img, contents: content})
+        this.$router.push('/attDetail')
       },
       bindEvents () {
         this.scroller.on('scroll', this.handleScroll.bind(this))
@@ -90,9 +102,9 @@
 
       handleGetDataSucc (res) {
         res = res ? res.data : null
-        if (res && res.data) {
-          if (res.data.blogs) {
-            this.conInfo = this.conInfo.concat(res.data.blogs)
+        if (res) {
+          if (res.rows) {
+            this.conInfo = this.conInfo.concat(res.rows).reverse()
             this.pageNum += 1
           }
           this.isFetching = false

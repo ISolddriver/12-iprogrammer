@@ -91,9 +91,9 @@
 
       handleGetDataSucc (res) {
         res = res ? res.data : null
-        if (res && res.data) {
-          if (res.data.blogs) {
-            this.conInfo = this.conInfo.concat(res.data.blogs)
+        if (res) {
+          if (res.rows) {
+            this.conInfo = this.conInfo.concat(res.rows)
             this.pageNum += 1
           }
           this.isFetching = false

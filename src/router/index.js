@@ -10,6 +10,8 @@ import Mask from '../components/mask/mask'
 import Publish from '@/pages/exchange/publish/publish'
 import MyPublish from '@/pages/mypublish/mypublish'
 import Funs from '@/pages/exchange/myfuns/funs'
+import AttDetail from '@/pages/detail/attDetail'
+import Classify from '@/pages/home/classifyDetail'
 
 Vue.use(Router)
 
@@ -22,7 +24,12 @@ export default new Router({
     }, {
       path: '/index',
       name: 'index',
-      component: Index
+      component: Index,
+      children: [{
+        path: ':id',
+        name: 'classify-detail',
+        component: Classify
+      }]
     }, {
       path: '/discovery',
       name: 'discovery',
@@ -55,6 +62,11 @@ export default new Router({
       path: '/funs',
       name: 'funs',
       component: Funs
+    }, {
+      path: '/attDetail',
+      name: 'att-detail',
+      component: AttDetail,
+      props: true
     }
   ]
 })

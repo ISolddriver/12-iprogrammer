@@ -31,6 +31,7 @@
   .footer
     display: flex
     position: absolute
+    z-index: 20
     bottom: 0
     left: 0
     right: 0
