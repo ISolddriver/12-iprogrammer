@@ -42,11 +42,11 @@
 				<span>更多</span>
 				<span class="iconfont arrowRight">&#xe61b;</span>
 			</div>
-			<div class="setting list">
+			<router-link class="setting list" tag="div" to="/address">
 				<i class="iconfont" style="color: #ffc100">&#xe6a2;</i>
 				<span>设置</span>
 				<span class="iconfont arrowRight">&#xe61b;</span>
-			</div>
+			</router-link>
 		</div>
 		<footer-con></footer-con>
 

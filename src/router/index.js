@@ -11,6 +11,7 @@ import Publish from '@/pages/exchange/publish/publish'
 import MyPublish from '@/pages/mypublish/mypublish'
 import Funs from '@/pages/exchange/myfuns/funs'
 import Follow from '@/pages/exchange/myfollow/follow'
+import Address from '@/pages/aboutMe/address'
 
 Vue.use(Router)
 
@@ -60,6 +61,10 @@ export default new Router({
       path: '/follow',
       name: 'follow',
       component: Follow
+    }, {
+      path: '/address',
+      name: 'address',
+      component: Address
     }
   ]
 })
