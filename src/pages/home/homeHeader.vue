@@ -66,6 +66,8 @@
 <style scoped lang="stylus">
   @import '../../assets/style/common/varibles.styl'
   .header
+    position: relative
+    z-index: 20
     display: flex
     justify-content: space-between
     height: .9rem

@@ -26,6 +26,8 @@
 <style scoped lang="stylus">
   @import '../../assets/style/common/varibles.styl'
   .search
+    position: relative
+    z-index: 20
     display: flex
     justify-content: center
     padding-top: .24rem

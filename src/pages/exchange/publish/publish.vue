@@ -57,9 +57,9 @@
         if (this.title === '' || this.text === '' || this.selected === '') {
           alert('请填写全')
         } else {
-          formData.append('file', this.file)
+          formData.append('cover', this.file)
           formData.append('title', this.title)
-          formData.append('text', this.text)
+          formData.append('content', this.text)
           formData.append('selected', this.selected)
 
           const config = {

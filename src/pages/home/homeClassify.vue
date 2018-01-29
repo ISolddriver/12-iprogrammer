@@ -1,8 +1,9 @@
 <template>
   <div class="classify">
-    <div class="width-box" v-for="item in classifyInfo">
+    <div class="width-box" v-for="item in classifyInfo" @click="handleClassifyClick" :data-index="item.id">
       <div class="classify-con" style="background: #f2e221">{{item.name}}</div>
-    </div>  
+    </div>
+    <router-view></router-view>  
   </div>
 </template>
 
@@ -23,7 +24,7 @@
       },
 
       handleGetDataSucc (res) {
-        console.log(res)
+        // console.log(res)
         res = res ? res.data : null
         if (res && res.ret && res.data) {
           this.classifyInfo = res.data.categories
@@ -34,6 +35,15 @@
       },
       handleDataError () {
         console.log('error')
+      },
+
+      handleClassifyClick (e) {
+        const target = e.currentTarget
+        const index = parseInt(target.getAttribute('data-index'), 10)
+        this.$router.push({
+          name: 'classify-detail',
+          params: { id: index }
+        })
       }
     },
     created () {
@@ -45,9 +55,11 @@
 <style scoped lang="stylus">
   .classify
     display: flex
+    flex: 1
     flex-wrap: wrap
     justify-content: space-around
     padding-top: .4rem
+    padding-bottom: 1rem
     .width-box
       float: left
       .classify-con

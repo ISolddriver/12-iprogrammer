@@ -12,6 +12,9 @@ import MyPublish from '@/pages/mypublish/mypublish'
 import Funs from '@/pages/exchange/myfuns/funs'
 import Follow from '@/pages/exchange/myfollow/follow'
 import Address from '@/pages/aboutMe/address'
+import AttDetail from '@/pages/detail/attDetail'
+import Classify from '@/pages/home/classifyDetail'
+
 
 Vue.use(Router)
 
@@ -24,7 +27,12 @@ export default new Router({
     }, {
       path: '/index',
       name: 'index',
-      component: Index
+      component: Index,
+      children: [{
+        path: ':id',
+        name: 'classify-detail',
+        component: Classify
+      }]
     }, {
       path: '/discovery',
       name: 'discovery',
@@ -65,6 +73,11 @@ export default new Router({
       path: '/address',
       name: 'address',
       component: Address
+    }, {
+      path: '/attDetail',
+      name: 'att-detail',
+      component: AttDetail,
+      props: true
     }
   ]
 })

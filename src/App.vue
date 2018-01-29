@@ -1,6 +1,6 @@
 <template>
   <transition :name="'vux-pop-' + (direction === 'forward' ? 'in' : 'out')">
-    <keep-alive include="homeAttention, Home, homeRec">
+    <keep-alive>
       <router-view/>
     </keep-alive>
   </transition>
