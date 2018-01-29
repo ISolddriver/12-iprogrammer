@@ -68,6 +68,7 @@
           clearInterval(this.timer)
           this.getCode = true
           this.retry = false
+          this.number = 60
         }
       }
     }

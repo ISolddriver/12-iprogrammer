@@ -33,7 +33,8 @@
 		<div class="list-con">
 			<div class="addr list">
 				<i class="iconfont" style="color: #3b2edf">&#xe68b;</i>
-				<span>地址</span>
+				<span>地址 </span>
+				<span>北京市-昌平区</span>
 				<span class="iconfont arrowRight">&#xe61b;</span>
 			</div>
 			<div class="more list">
@@ -88,17 +89,16 @@
 		background: url(../../images/minebg.jpg) no-repeat center center
 		.photoCon
 			width: 1.46rem
-			height: 0
-			padding-bottom: 1.46rem
+			height: 1.46rem
 			text-align: center
+			margin-left: 3rem
+			padding-top: .6rem
 			.photo
-				display: inline-block
 				width: 100%
-				margin-top: .4rem
-				margin-left: 3rem
+				height: 100%
 				border-radius: .73rem
 		.name
-			margin: .8rem 0 .2rem 0
+			margin: .5rem 0 .2rem 0
 			font-size: .36rem
 			.register, .login
 				color: #fff
@@ -118,9 +118,9 @@
 			.dataInfo
 				float: left
 			.dynamic, .fans
-				width: 2.6rem
+				width: 2.5rem
 			.follow 
-				width: 2.2rem
+				width: 2.1rem
 				border-left: 1px solid #fff
 				border-right: 1px solid #fff
 	.list-con

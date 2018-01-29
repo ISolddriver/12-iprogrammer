@@ -56,7 +56,7 @@
 		width: 100%
 		height: .88rem
 		line-height: .88rem
-		background: #c8c3be
+		background: #666
 		color: #fff
 		.title 
 			text-align: center

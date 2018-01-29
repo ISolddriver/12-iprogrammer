@@ -5,17 +5,17 @@
 			关注
 		</div>
 		<div class="container">
-			<!-- <div class="item">
+			<div class="item">
 				<img class="headImg" src="../../default.jpg" alt="头像">
 				<div class="des-con">
 					<span class="nickname">昵称：于大炮</span>	<br>
 					<span class="des">简介：各位朋友，我是于大炮！我三舅贼屌</span>
 				</div>				
-			</div> -->
-			<div class="no-data">
+			</div>
+			<!-- <div class="no-data">
 				<img class="no-data-img" src="../../../images/logo.png" alt="no-data">
 				<span>暂时没有人关注你哇!</span>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </template>
