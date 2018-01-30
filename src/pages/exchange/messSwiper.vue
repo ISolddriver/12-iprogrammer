@@ -18,7 +18,7 @@
         swiperOption: {
           autoplay: 2000,
           pagination: '.swiper-pagination',
-          speed: 3000,
+          speed: 500,
           loop: true
         }
       }

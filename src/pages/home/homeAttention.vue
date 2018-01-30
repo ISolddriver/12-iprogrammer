@@ -10,7 +10,7 @@
             <img class="conImg" v-lazy="item.headImg" alt="">
           </div>
           <div class="author">{{item.nickname}}<i class="shareText">的分享</i></div>
-          <div class="more"><i class="iconfont more-icon">&#xe63d;</i></div>
+          <div class="more" @click="handleMoreClick"><i class="iconfont more-icon">&#xe63d;</i></div>
         </div>
         <div class="con-bottom">
           <div @click="handleAttClick">
@@ -52,6 +52,7 @@
         isFetching: false,
         activeLike: false,
         activeCollect: false,
+        activeMore: false,
         pageNum: 1
       }
     },
@@ -115,6 +116,16 @@
       handleDataError () {
         console.log('error')
       },
+      handleMoreClick (e) {
+        console.log(e.target.parentNode.parentNode.parentNode)
+        if (this.activeMore === false) {
+          e.target.parentNode.parentNode.parentNode.className = 'con border-topbottom addMore'
+          this.activeMore = true
+        } else {
+          e.target.parentNode.parentNode.parentNode.className = 'con border-topbottom'
+          this.activeMore = false
+        }
+      },
       handleLikeClick (e) {
         if (this.activeLike === false) {
           e.target.className = 'iconfont comment-icon like addLike'
@@ -156,6 +167,8 @@
 
 <style scoped lang="stylus">
   @import '../../assets/style/common/varibles.styl'
+  .addMore
+    background: #bde6f7!important
   .loading
     line-height: .8rem
     text-align: center

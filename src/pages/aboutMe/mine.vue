@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="minebg">
 		<div class="info">
 			<div class="photoCon">
 				<img src="./default.jpg" class="photo">				
@@ -11,21 +11,21 @@
 			<p class="name" v-show="!showInfo">{{username}}</p>
 			<div class="contact">				
 				<img src="../../images/1.jpg" class="pic">								
-				<span class="ipNum">IP号：23453322</span>
+				<span class="ipNum"><b style="color: #333">IP号：</b>23453322</span>
 			</div>
-			<p class="introduce">个人简介: 一个大胖子</p>
+			<p class="introduce">个人简介: 高级工程师</p>
 			<div class="data">
 				<div class="dynamic dataInfo">
-					<p>160</p>
-					<span>动态</span>
+					<p class="num">15</p>
+					<span class="data-text">动态</span>
 				</div>
 				<div class="follow dataInfo">
-					<p>160</p>
-					<span>关注</span>
+					<p class="num">241</p>
+					<span class="data-text">关注</span>
 				</div>
 				<div class="fans dataInfo">
-					<p>160</p>
-					<span>粉丝</span>
+					<p class="num">140</p>
+					<span class="data-text">粉丝</span>
 				</div>				
 			</div>
 		</div>
@@ -86,20 +86,23 @@
   }
 </script>
 <style scoped lang='stylus'>
+	.minebg
+		background: url(../../images/minebg.png)
+		background-size: cover
 	.info
 		width: 100%
 		height: 5.52rem
 		text-align: center
 		color: #fff
-		padding-top: .6rem
-		background: url(../../images/minebg.jpg) no-repeat center center
+		padding-top: .5rem
 		background-size: cover  
 		.photoCon
-			width: 1.46rem
-			height: 1.46rem
+			width: 1.7rem
+			height: 1.7rem
 			margin: 0 auto
 			text-align: center
-			border-radius: .73rem
+			border-radius: .94rem
+			border: .08rem solid #fff
 			overflow: hidden
 			.photo
 				width: 100%
@@ -112,33 +115,52 @@
 		.contact
 			margin: 0 auto .2rem auto
 			font-size: .24rem
+			.ipNum
+				color: #666
 		.pic
 			width: .32rem
 			height: .32rem
 		.introduce
 			font-size: .36rem
+			overflow: hidden
+			text-overflow: ellipsis
+			white-space: nowrap
 		.data
 			height: .8rem
-			font-size: .30rem
 			margin: .4rem auto 0 auto
 			text-align: center
+			color: #666
+			.data-text
+				font-size: .28rem
+				line-height: .4rem
+				height: .28rem
+			.num
+				font-size: .38rem
+				font-weight: bold
+				color: #aaa
 			.dataInfo
 				float: left
 			.dynamic, .fans
 				width: 2.5rem
 			.follow 
 				width: 2.1rem
-				border-left: 1px solid #fff
-				border-right: 1px solid #fff
+				border-left: 1px solid #666
+				border-right: 1px solid #666
 	.list-con
-		font-size: .32rem
+		font-size: .28rem
 		.list
 			position: relative
-			height: 1.33rem
-			line-height: 1.33rem
-			padding-left: .2rem
+			width: 85%
+			height: .45rem
+			margin: .3rem auto
+			padding: .3rem
+			line-height: .45rem
+			border-radius: 4px 4px 4px 4px
+			-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset
+			-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset
+			box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset
 			color: #777e84
-			border-bottom: 1px solid #ccc
+			font-weight: bold
 			.arrowRight
 				position: absolute
 				right: .2rem

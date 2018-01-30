@@ -45,6 +45,7 @@
 	flex: 1
 	overflow: hidden
 	top: 1.76rem
+	background: #f1f1f1
 	.content
 		border-bottom: 1px solid #ccc
 		margin-bottom: .2rem
@@ -72,8 +73,9 @@
 					margin-bottom: .1rem
 					color: #ccc
 				.txtCon
-					font-size: .30rem;
-					line-height: .33rem
+					text-indent: .52rem
+					font-size: .26rem
+					line-height: .36rem
 					color: #666
 				.picCon
 					height: 3rem
