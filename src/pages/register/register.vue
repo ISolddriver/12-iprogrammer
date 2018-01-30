@@ -75,11 +75,15 @@
       handlePasswordSucc (res) {
         if (res.data.ret) {
           console.log('login succ')
+          window.localStorage.username = this.username
           this.$router.push({path: '/index'})
         }
       },
       handleLogin () {
         this.$router.push({path: '/login'})
+      },
+      handlePasswordErr () {
+        console.log('注册出事了')
       }
     }
   }

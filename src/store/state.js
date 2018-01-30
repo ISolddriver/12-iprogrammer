@@ -1,5 +1,8 @@
 export default {
   imgUrls: '',
   titles: '',
-  contents: ''
+  contents: '',
+  province: '',
+  city: '',
+  area: ''
 }

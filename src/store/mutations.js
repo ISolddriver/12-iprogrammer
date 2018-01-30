@@ -4,7 +4,10 @@ const state = {
   direction: 'forward',
   imgUrls: '',
   titles: '',
-  contents: ''
+  contents: '',
+  province: '',
+  city: '',
+  area: ''
 }
 
 const mutations = {
@@ -15,6 +18,12 @@ const mutations = {
     state.titles = action.titles
     state.imgUrls = action.imgUrls
     state.contents = action.contents
+    state.address = action.address
+  },
+  changeAddr (state, action) {
+    state.province = action.province
+    state.city = action.city
+    state.area = action.area
   }
 }
 

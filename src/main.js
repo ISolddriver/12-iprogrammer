@@ -11,9 +11,11 @@ import './assets/style/base/reset.css'
 import './assets/style/base/border.css'
 import './assets/style/base/iconfont/iconfont.css'
 import 'swiper/dist/css/swiper.css'
+import Distpicker from 'v-distpicker'
 
 import directives from './directives/touch'
 directives(Vue)
+Vue.component('v-distpicker', Distpicker)
 
 Vue.config.productionTip = false
 Fastclick.attach(document.body)

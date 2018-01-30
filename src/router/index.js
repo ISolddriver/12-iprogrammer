@@ -12,9 +12,9 @@ import MyPublish from '@/pages/mypublish/mypublish'
 import Funs from '@/pages/exchange/myfuns/funs'
 import Follow from '@/pages/exchange/myfollow/follow'
 import Address from '@/pages/aboutMe/address'
+import Setting from '@/pages/aboutMe/setting'
 import AttDetail from '@/pages/detail/attDetail'
 import Classify from '@/pages/home/classifyDetail'
-
 
 Vue.use(Router)
 
@@ -78,6 +78,10 @@ export default new Router({
       name: 'att-detail',
       component: AttDetail,
       props: true
+    }, {
+      path: '/setting',
+      name: 'setting',
+      component: Setting
     }
   ]
 })

@@ -31,18 +31,18 @@
 		</div>
 
 		<div class="list-con">
-			<div class="addr list">
+			<router-link class="addr list" tag="div" to="/address">
 				<i class="iconfont" style="color: #3b2edf">&#xe68b;</i>
 				<span>地址 </span>
-				<span>北京市-昌平区</span>
+				<span>{{mutations.province}}-{{mutations.city}}-{{mutations.area}}</span>
 				<span class="iconfont arrowRight">&#xe61b;</span>
-			</div>
+			</router-link>
 			<div class="more list">
 				<i class="iconfont" style="color: #ff852f">&#xe617;</i>
 				<span>更多</span>
 				<span class="iconfont arrowRight">&#xe61b;</span>
 			</div>
-			<router-link class="setting list" tag="div" to="/address">
+			<router-link class="setting list" tag="div" to="/setting">
 				<i class="iconfont" style="color: #ffc100">&#xe6a2;</i>
 				<span>设置</span>
 				<span class="iconfont arrowRight">&#xe61b;</span>
@@ -54,6 +54,7 @@
 </template>
 <script>
   import footerCon from '../../components/footer/footer'
+  import { mapState } from 'vuex'
   export default {
     name: 'mine',
     data () {
@@ -75,6 +76,9 @@
         }
       }
     },
+    computed: {
+      ...mapState(['mutations'])
+    },
     created () {
       this.changeUserInfo()
     }
@@ -86,25 +90,27 @@
 		height: 5.52rem
 		text-align: center
 		color: #fff
+		padding-top: .6rem
 		background: url(../../images/minebg.jpg) no-repeat center center
+		background-size: cover  
 		.photoCon
 			width: 1.46rem
 			height: 1.46rem
+			margin: 0 auto
 			text-align: center
-			margin-left: 3rem
-			padding-top: .6rem
+			border-radius: .73rem
+			overflow: hidden
 			.photo
 				width: 100%
-				height: 100%
-				border-radius: .73rem
+				height: 100%			
 		.name
 			margin: .5rem 0 .2rem 0
 			font-size: .36rem
 			.register, .login
 				color: #fff
 		.contact
+			margin: 0 auto .2rem auto
 			font-size: .24rem
-			margin-bottom: .2rem
 		.pic
 			width: .32rem
 			height: .32rem
@@ -113,7 +119,7 @@
 		.data
 			height: .8rem
 			font-size: .30rem
-			margin-top: .4rem
+			margin: .4rem auto 0 auto
 			text-align: center
 			.dataInfo
 				float: left
@@ -129,7 +135,7 @@
 			position: relative
 			height: 1.33rem
 			line-height: 1.33rem
-			padding-left: .1rem
+			padding-left: .2rem
 			color: #777e84
 			border-bottom: 1px solid #ccc
 			.arrowRight

@@ -85,6 +85,11 @@
       },
       hadleRegister () {
         this.$router.push({path: '/register'})
+      },
+      watch: {
+        username () {
+          window.localStorage.username = this.username
+        }
       }
     }
   }

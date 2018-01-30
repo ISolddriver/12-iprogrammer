@@ -4,12 +4,12 @@
 			<div class="inputItem">
 				<span class="inputDes">用户名</span> 
 				<input type="text" class="des" @blur="handleUsername" placeholder="字母开头(6-8个字符)">
-        <i class="nameRight iconfont" v-show="nameRight">&#xe650;</i>
-        <i class="nameError iconfont" v-show="nameError">&#xe652;</i>
+        <i class="nameRight iconfont" v-show="nameRight">&#xe650;{{message}}</i>
+        <i class="nameError iconfont" v-show="nameError">&#xe652;{{message}}</i>
 			</div>
 			<div class="inputItem">
 				<span class="inputDes">密码</span> 
-				<input type="password" class="des" @blur="handlePassword" placeholder="6-12位密码">
+				<input type="password" class="des" @input="handlePassword" placeholder="6-12位密码">
 			</div>
 		</div>
 	</div>
@@ -26,7 +26,8 @@
         nameConfirm: false,
         pwdConfirm: false,
         nameRight: false,
-        nameError: false
+        nameError: false,
+        message: ''
       }
     },
     methods: {
@@ -34,8 +35,6 @@
         this.username = e.target.value
         const reg = /^[\u4e00-\u9fff\w]{5,16}$/
         if (reg.test(this.username)) {
-          this.nameRight = true
-          this.nameError = false
           axios.get('/user.action?act=check&userName=' + this.username)
          .then(this.handleUsernameSucc.bind(this))
          .catch(this.handleUsernameErr.bind(this))
@@ -45,9 +44,17 @@
         }
       },
       handleUsernameSucc (res) {
-        console.log(res)
+        console.log(res.data.message)
+        this.message = res.data.message
         res.data.ret ? this.nameConfirm = true : this.nameConfirm = false
-        console.log(this.nameConfirm)
+        this.nameConfirm = res.data.ret
+        if (res.data.ret) {
+          this.nameRight = true
+          this.nameError = false
+        } else {
+          this.nameRight = false
+          this.nameError = true
+        }
       },
       handleUsernameErr () {
         console.log('bad username')
@@ -108,14 +115,14 @@
 		.nameRight 
 			position: absolute
 			top: .32rem
-			right: 2rem
+			right: .2rem
 			font-size: .32rem
 			font-weight: 900
 			color: green
 		.nameError 
 			position: absolute
 			top: .32rem
-			right: 2rem
+			right: .2rem
 			font-size: .32rem
 			font-weight: 900
 			color: red

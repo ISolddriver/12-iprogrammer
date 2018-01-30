@@ -40,10 +40,11 @@
       },
       handleInputCode (e) {
         this.codeNum = e.target.value
-        console.log(this.phoneNum, this.codeNum)
-        axios.get('/user.action?act=checkCode&phone=' + this.phoneNum + '&code=' + this.codeNum)
-         .then(this.handleCodeSucc.bind(this))
-
+        console.log(this.codeNum)
+        if (this.codeNum.length >= 4) {
+          axios.get('/user.action?act=checkCode&phone=' + this.phoneNum + '&code=' + this.codeNum)
+           .then(this.handleCodeSucc.bind(this))
+        }
         // if (this.codeNum === this.codeInfo) {
         //   this.verification = true
         // } else {
