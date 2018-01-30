@@ -15,6 +15,7 @@ import Address from '@/pages/aboutMe/address'
 import Setting from '@/pages/aboutMe/setting'
 import AttDetail from '@/pages/detail/attDetail'
 import Classify from '@/pages/home/classifyDetail'
+import Rec from '@/pages/aboutMe/rec'
 
 Vue.use(Router)
 
@@ -82,6 +83,10 @@ export default new Router({
       path: '/setting',
       name: 'setting',
       component: Setting
+    }, {
+      path: '/rec',
+      name: 'rec',
+      component: Rec
     }
   ]
 })

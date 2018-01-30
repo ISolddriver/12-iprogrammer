@@ -167,6 +167,7 @@
   .con
     width: 100%
     height: 7.15rem
+    background: #fff
     &::after,::before
       border-color: $borderColor
     .con-top

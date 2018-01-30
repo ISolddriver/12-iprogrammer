@@ -47,6 +47,11 @@
 				<span>设置</span>
 				<span class="iconfont arrowRight">&#xe61b;</span>
 			</router-link>
+			<router-link class="rec list" tag="div" to="http://www.hibfe.com:3026/rec/rec.html">
+				<i class="iconfont" style="color: #0575f2">&#xe65f;</i>
+				<span>推广</span>
+				<span class="iconfont arrowRight">&#xe61b;</span>
+			</router-link>
 		</div>
 		<footer-con></footer-con>
 
