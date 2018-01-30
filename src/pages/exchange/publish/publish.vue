@@ -58,7 +58,7 @@
         }
         event.preventDefault()
         const formData = new FormData()
-        if (this.title === '' || this.text === '' || this.selected === '' || this.status === true) {
+        if (this.title === '' || this.text === '' || this.selected === '') {
           alert('请填写全')
         } else {
           formData.append('cover', this.file)
