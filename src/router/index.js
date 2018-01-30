@@ -12,6 +12,7 @@ import MyPublish from '@/pages/mypublish/mypublish'
 import Funs from '@/pages/exchange/myfuns/funs'
 import AttDetail from '@/pages/detail/attDetail'
 import Classify from '@/pages/home/classifyDetail'
+import Rec from '@/pages/aboutMe/rec'
 
 Vue.use(Router)
 
@@ -67,6 +68,10 @@ export default new Router({
       name: 'att-detail',
       component: AttDetail,
       props: true
+    }, {
+      path: '/rec',
+      name: 'rec',
+      component: Rec
     }
   ]
 })
