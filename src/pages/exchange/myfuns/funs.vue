@@ -8,8 +8,8 @@
 			<div class="item">
 				<img class="headImg" src="../../default.jpg" alt="头像">
 				<div class="des-con">
-					<span class="nickname">昵称：于大炮</span>	<br>
-					<span class="des">简介：各位朋友，我是于大炮！我三舅贼屌</span>
+					<span class="nickname">昵称：雾里看花</span>	<br>
+					<span class="des">简介：高级java攻城狮</span>
 				</div>				
 			</div>
 		</div>

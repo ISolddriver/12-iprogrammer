@@ -40,7 +40,8 @@
         title: '',
         file: '',
         text: '',
-        selected: 'HTML5'
+        selected: 'HTML5',
+        status: false
       }
     },
     methods: {
@@ -52,9 +53,12 @@
         console.log(this.file)
       },
       submitForm (event) {
+        if (!this.status) {
+          alert('请登录后发表')
+        }
         event.preventDefault()
         const formData = new FormData()
-        if (this.title === '' || this.text === '' || this.selected === '') {
+        if (this.title === '' || this.text === '' || this.selected === '' || this.status === true) {
           alert('请填写全')
         } else {
           formData.append('cover', this.file)
@@ -65,7 +69,6 @@
           const config = {
             headers: {'Content-Type': 'multipart/form-data'}
           }
-
           axios.post('/blog.action?act=add', formData, config)
            .then(this.handleSendSucc.bind(this))
            .catch(this.handleSendErr.bind(this))
@@ -77,7 +80,17 @@
       },
       handleSendErr () {
         console.log('send pic err')
+      },
+      getUser () {
+        if (window.localStorage.username) {
+          this.status = true
+        } else {
+          this.status = false
+        }
       }
+    },
+    created () {
+      this.getUser()
     }
   }
 </script>

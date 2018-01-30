@@ -6,11 +6,11 @@
 		<div class="loginArea">
 			<div class="area">				
 				<i class="iconfont icon">&#xe724;</i>				
-				<input type="text" placeholder="请输入用户名" class="inputCon" @blur="handleUserName">
+				<input type="text" placeholder="请输入用户名" class="inputCon" @blur="handleUserName" ref="username">
 			</div>
 			<div class="area">				
 				<i class="iconfont icon">&#xe608;</i>		
-				<input type="password" placeholder="请输入密码" class="inputCon" @input="handlePassword">
+				<input type="password" placeholder="请输入密码" class="inputCon" @input="handlePassword" ref="password">
 			</div>
 			<span class="check" v-show="check" style="color: red">用户名密码错误！</span>			
 			<div>
@@ -74,6 +74,8 @@
         console.log(res)
         if (res.data.ret) {
           this.$router.push({path: '/index'})
+          this.$refs.username.value = ''
+          this.$refs.password.value = ''
         } else if (!res.data.ret) {
           this.check = true
         } else {
