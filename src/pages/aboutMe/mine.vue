@@ -31,21 +31,27 @@
 		</div>
 
 		<div class="list-con">
-			<div class="addr list">
+			<router-link class="addr list" tag="div" to="/address">
 				<i class="iconfont" style="color: #3b2edf">&#xe68b;</i>
-				<span>地址</span>
+				<span>地址 </span>
+				<span>北京市-昌平区</span>
 				<span class="iconfont arrowRight">&#xe61b;</span>
-			</div>
+			</router-link>
 			<div class="more list">
 				<i class="iconfont" style="color: #ff852f">&#xe617;</i>
 				<span>更多</span>
 				<span class="iconfont arrowRight">&#xe61b;</span>
 			</div>
-			<div class="setting list">
+			<router-link class="setting list" tag="div" to="/setting">
 				<i class="iconfont" style="color: #ffc100">&#xe6a2;</i>
 				<span>设置</span>
 				<span class="iconfont arrowRight">&#xe61b;</span>
-			</div>
+			</router-link>
+			<router-link class="rec list" tag="div" to="http://www.hibfe.com/rec/index.html">
+				<i class="iconfont" style="color: #0575f2">&#xe65f;</i>
+				<span>推广</span>
+				<span class="iconfont arrowRight">&#xe61b;</span>
+			</router-link>
 		</div>
 		<footer-con></footer-con>
 
@@ -85,26 +91,27 @@
 		height: 5.52rem
 		text-align: center
 		color: #fff
+		padding-top: .6rem
 		background: url(../../images/minebg.jpg) no-repeat center center
+		background-size: cover  
 		.photoCon
 			width: 1.46rem
-			height: 0
-			padding-bottom: 1.46rem
+			height: 1.46rem
+			margin: 0 auto
 			text-align: center
+			border-radius: .73rem
+			overflow: hidden
 			.photo
-				display: inline-block
 				width: 100%
-				margin-top: .4rem
-				margin-left: 3rem
-				border-radius: .73rem
+				height: 100%			
 		.name
-			margin: .8rem 0 .2rem 0
+			margin: .5rem 0 .2rem 0
 			font-size: .36rem
 			.register, .login
 				color: #fff
 		.contact
+			margin: 0 auto .2rem auto
 			font-size: .24rem
-			margin-bottom: .2rem
 		.pic
 			width: .32rem
 			height: .32rem
@@ -113,14 +120,14 @@
 		.data
 			height: .8rem
 			font-size: .30rem
-			margin-top: .4rem
+			margin: .4rem auto 0 auto
 			text-align: center
 			.dataInfo
 				float: left
 			.dynamic, .fans
-				width: 2.6rem
+				width: 2.5rem
 			.follow 
-				width: 2.2rem
+				width: 2.1rem
 				border-left: 1px solid #fff
 				border-right: 1px solid #fff
 	.list-con
@@ -129,7 +136,7 @@
 			position: relative
 			height: 1.33rem
 			line-height: 1.33rem
-			padding-left: .1rem
+			padding-left: .2rem
 			color: #777e84
 			border-bottom: 1px solid #ccc
 			.arrowRight

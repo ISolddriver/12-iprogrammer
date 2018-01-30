@@ -1,7 +1,7 @@
 <template>
   <div class="classify">
-    <div class="width-box" v-for="item in classifyInfo" @click="handleClassifyClick" :data-index="item.id">
-      <div class="classify-con" style="background: #f2e221">{{item.name}}</div>
+    <div class="width-box" v-for="(item, index) in classifyInfo" @click="handleClassifyClick" :data-index="item.id">
+      <div class="classify-con" :style="{background: style[index]}" >{{item.title}}</div>
     </div>
     <router-view></router-view>  
   </div>
@@ -14,7 +14,13 @@
     data () {
       return {
         classifyInfo: [],
-        classifyBg: []
+        classifyBg: [],
+        style: []
+      }
+    },
+    watch: {
+      classifyInfo () {
+        this.getColor()
       }
     },
     methods: {
@@ -22,7 +28,19 @@
         axios.post('/category.action?act=list')
           .then(this.handleGetDataSucc.bind(this))
       },
-
+      getRandomColor () {
+        const arr = ('1234567890abcdef').split('')
+        let color = '#'
+        for (let i = 0; i < 6; i++) {
+          color += arr[Math.round(Math.random() * 15)]
+        }
+        return color
+      },
+      getColor () {
+        this.classifyInfo.forEach(() => {
+          this.style.push(this.getRandomColor())
+        })
+      },
       handleGetDataSucc (res) {
         // console.log(res)
         res = res ? res.data : null
