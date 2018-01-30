@@ -16,6 +16,7 @@ import Setting from '@/pages/aboutMe/setting'
 import AttDetail from '@/pages/detail/attDetail'
 import Classify from '@/pages/home/classifyDetail'
 import Rec from '@/pages/aboutMe/rec'
+import More from '@/pages/aboutMe/more'
 
 Vue.use(Router)
 
@@ -87,6 +88,10 @@ export default new Router({
       path: '/rec',
       name: 'rec',
       component: Rec
+    }, {
+      path: '/more',
+      name: 'more',
+      component: More
     }
   ]
 })

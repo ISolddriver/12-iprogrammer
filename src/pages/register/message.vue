@@ -40,8 +40,8 @@
       },
       handleInputCode (e) {
         this.codeNum = e.target.value
-        console.log(this.codeNum)
         if (this.codeNum.length >= 4) {
+          console.log(this.codeNum)
           axios.get('/user.action?act=checkCode&phone=' + this.phoneNum + '&code=' + this.codeNum)
            .then(this.handleCodeSucc.bind(this))
         }

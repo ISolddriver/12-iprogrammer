@@ -37,11 +37,11 @@
 				<span>{{mutations.province}}-{{mutations.city}}-{{mutations.area}}</span>
 				<span class="iconfont arrowRight">&#xe61b;</span>
 			</router-link>
-			<div class="more list">
+			<router-link class="more list" tag="div" to="/more">
 				<i class="iconfont" style="color: #ff852f">&#xe617;</i>
 				<span>更多</span>
 				<span class="iconfont arrowRight">&#xe61b;</span>
-			</div>
+			</router-link>
 			<router-link class="setting list" tag="div" to="/setting">
 				<i class="iconfont" style="color: #ffc100">&#xe6a2;</i>
 				<span>设置</span>
