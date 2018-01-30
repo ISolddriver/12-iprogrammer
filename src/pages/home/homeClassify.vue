@@ -86,7 +86,7 @@
         margin: 0 .4rem
         text-align: center
         line-height: .8rem
-        border-radius: .05rem
+        border-radius: .4rem
         background: #ffecdb
         color: #fff
         font-size: .32rem
