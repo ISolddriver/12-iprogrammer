@@ -63,7 +63,8 @@
     methods: {
       createScroller () {
         this.scroller = new BScroll(this.$refs.scroller, {
-          probeType: 2
+          probeType: 2,
+          click: true
         })
       },
       bindEvents () {
